@@ -45,6 +45,21 @@ function enqueue_svcustom_scripts() {
 add_action('wp_enqueue_scripts', 'enqueue_svcustom_scripts');
 
 /**
+ * Registra os menus de navegação
+ *
+ * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
+ */
+add_filter( 'hello_elementor_register_menus', function( $register_menus ) {
+    if ( $register_menus ) {
+        register_nav_menus( [
+            'primary-header-menu' => esc_html__( 'Header', 'hello-elementor' ),
+            'primary-footer-menu' => esc_html__( 'Footer', 'hello-elementor' ),
+        ] );
+    }
+    return false;
+}, 20 );
+
+/**
  * Classe personalizada para gerenciar submenus com título e botão "Voltar".
  */
 class Custom_Submenu_Walker extends Walker_Nav_Menu {
