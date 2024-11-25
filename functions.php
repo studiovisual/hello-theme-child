@@ -83,7 +83,7 @@ class Custom_Submenu_Walker extends Walker_Nav_Menu {
 			$output .= '<li class="menu-item menu-item-btn">';
 			$output .= '<div class="sv-header__back-menu-container">';
 			$output .= '<button id="sv-header__back-menu" class="sv-header__back-button" aria-label="Voltar ao Menu Principal">';
-			$output .= '<img src="' . esc_url( get_stylesheet_directory_uri() ) . '/assets/icons/arrow-back-menu.svg" alt="" width="18" height="18">';
+			$output .= '<img src="' . esc_url( get_stylesheet_directory_uri() ) . '/assets/icons/arrow-back-menu.svg" alt="Voltar" width="18" height="18">';
 			$output .= '<span>Voltar</span>';
 			$output .= '</button>';
 			$output .= '</div>';
@@ -129,6 +129,10 @@ class Custom_Submenu_Walker extends Walker_Nav_Menu {
  * @return array Itens do menu modificados.
  */
 function add_menu_description_to_items($items, $args) {
+	if (empty($items)) {
+		return $items;
+	}
+
 	foreach ($items as &$item) {
 		if (!empty($item->description)) {
 			$item->title .= ' <span class="menu-item-description">' . esc_html($item->description) . '</span>';
