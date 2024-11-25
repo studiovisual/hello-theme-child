@@ -53,7 +53,6 @@ $stylesheet_dir_uri = esc_url(get_stylesheet_directory_uri());
 			?>
 
 			<a href="/contrate" class="sv-header__button sv-header__button--hire d-none-desktop" title="Agendar demonstração gratuita">Agendar demonstração gratuita</a>
-			</div>
 		</nav>
 	</div>
 </header>
