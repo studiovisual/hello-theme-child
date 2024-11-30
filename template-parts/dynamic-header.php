@@ -25,8 +25,8 @@ $stylesheet_dir_uri = esc_url(get_stylesheet_directory_uri());
 				src="<?php echo $stylesheet_dir_uri; ?>/assets/icons/menu-open.svg" 
 				alt="Abrir Menu"
 				class="sv-header__navOpen"
-				width="24"
-				height="24"
+				width="30"
+				height="30"
 			>
 		</label>
 

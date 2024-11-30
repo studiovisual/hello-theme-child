@@ -75,29 +75,38 @@ class Custom_Submenu_Walker extends Walker_Nav_Menu {
 	 * @param int      $depth Nível de profundidade atual.
 	 * @param stdClass $args Configurações do menu.
 	 */
+
 	public function start_lvl( &$output, $depth = 0, $args = null ) {
-		if ( $depth === 0 ) {
-			$output .= '<ul class="sub-menu">';
+    if ( $depth === 0 ) {
+			// Adiciona a div que encapsula o submenu e o botão "Voltar".
+			$output .= '<div class="submenu-wrapper">';
 
 			// Adiciona o botão "Voltar".
-			$output .= '<li class="menu-item menu-item-btn">';
-			$output .= '<div class="sv-header__back-menu-container">';
 			$output .= '<button id="sv-header__back-menu" class="sv-header__back-button" aria-label="Voltar ao Menu Principal">';
 			$output .= '<img src="' . esc_url( get_stylesheet_directory_uri() ) . '/assets/icons/arrow-back-menu.svg" alt="Voltar" width="18" height="18">';
-			$output .= '<span>Voltar</span>';
 			$output .= '</button>';
-			$output .= '</div>';
-			$output .= '</li>';
+    }
 
-			// Adiciona o título do submenu, se estiver definido.
-			if ( ! empty( $this->current_item_title ) ) {
-				$output .= '<li class="menu-item menu-item-title">';
-				$output .= '<span>' . esc_html( $this->current_item_title ) . '</span>';
-				$output .= '</li>';
-			}
-		} else {
-				// Para outros níveis de profundidade, mantém a estrutura padrão.
-				$output .= '<ul>';
+    // Abre o submenu.
+    $output .= '<ul class="sub-menu">';
+
+    if ( $depth === 0 ) {
+        // Adiciona o título do submenu, se estiver definido.
+        if ( ! empty( $this->current_item_title ) ) {
+					$output .= '<li class="menu-item menu-item-title">';
+					$output .= '<span>' . esc_html( $this->current_item_title ) . '</span>';
+					$output .= '</li>';
+        }
+    }
+	}
+
+	public function end_lvl( &$output, $depth = 0, $args = null ) {
+		// Fecha o submenu.
+		$output .= '</ul>';
+
+		if ( $depth === 0 ) {
+			// Fecha a div de encapsulamento.
+			$output .= '</div>';
 		}
 	}
 

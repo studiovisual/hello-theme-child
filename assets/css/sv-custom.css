@@ -123,7 +123,7 @@ body.body--with-checkbox-checked {
   left: 0;
 }
 
-#sv-header .sv-header__checkbox:checked~.sv-header__navigation.submenu-container--show {
+#sv-header .sv-header__checkbox:checked~.sv-header__navigation.close {
   left: -100%;
 }
 
@@ -171,15 +171,22 @@ body.body--with-checkbox-checked {
   z-index: 2;
 }
 
-#sv-header .menu-item .menu-item-description {
+#sv-header .sv-header__navigation .sub-menu .menu-item a {
+  color: #1E1E1E;
+  padding: 0;
+  font-size: 14px;
   font-weight: 400;
+}
+
+#sv-header .menu-item .menu-item-description {
+  padding-top: 14px;
 }
 
 #sv-header .sv-header__navigation .menu-item-has-children::after {
   content: '';
   width: 30px;
   height: 30px;
-  background: url('data:image/svg+xml;charset=utf-8,<svg viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg" class="e-font-icon-svg e-fas-chevron-right"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg>') no-repeat center center;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="none" height="15" viewBox="0 0 10 15" width="10"><g fill="%232c2c2c"><rect height="1.8" rx=".9" transform="matrix(.744985 .667081 -.744985 .667081 2.28076 .044922)" width="10.3616"></rect><rect height="1.8" rx=".9" transform="matrix(-.744985 .667081 -.744985 -.667081 10.0005 7.09277)" width="10.3616"></rect></g></svg>') no-repeat center center;
   background-size: 10px;
   position: absolute;
   right: 0;
@@ -187,20 +194,25 @@ body.body--with-checkbox-checked {
 }
 
 #sv-header .sv-header__back-menu-container {
-  background-color: #2A59DD;
   width: 100%;
 }
 
 #sv-header #sv-header__back-menu {
-  padding: 14px 16px;
+  padding: 0;
   background-color: transparent;
   margin-bottom: 0;
   display: flex;
+  justify-content: flex-end;
   align-items: center;
   width: 100%;
   border: none;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
+}
+
+#sv-header #sv-header__back-menu img {
+  transform: rotate(-180deg);
+  width: 20px;
 }
 
 #sv-header .sv-header__back-button span {
@@ -213,18 +225,29 @@ body.body--with-checkbox-checked {
 }
 
 #sv-header .sv-header__navigation .menu-item-title {
-  padding: 24px 16px;
-  color: #E31B23;
+  color: #1E1E1E;
   font-family: var(--f-family-var), Sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1.5em;
-  background-color: #eef3ff;
-  border: none;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1.07em;
+}
+
+#sv-header .sv-header__navigation .menu-item-title:after {
+  content: ".";
+  position: absolute;
+  width: 30px;
+  height: 5px;
+  background-color: #FDBA14;
+  right: 20px;
+  bottom: 5px;
+}
+
+#sv-header .sub-menu {
+  padding: 0;
 }
 
 @media(max-width: 1024px) {
-  #sv-header .sub-menu {
+  #sv-header .submenu-wrapper {
     background-color: #FFFFFF;
     position: fixed;
     top: 74px;
@@ -234,27 +257,34 @@ body.body--with-checkbox-checked {
     z-index: 200;
     transition: all 500ms;
     overflow: auto;
-    padding: 0;
+    padding: 20px;
   }
   
-  /* #sv-header .sub-menu.submenu-container--show {
-    left: 0;
-  } */
-
-  #sv-header .submenu-container--show .sub-menu {
+  #sv-header .submenu-wrapper.submenu-container--show {
     left: 0;
   }
 
   body.logged-in.admin-bar #sv-header .sv-header__navigation,
-  body.logged-in.admin-bar #sv-header .sub-menu {
+  body.logged-in.admin-bar #sv-header .submenu-wrapper {
     top: 46px;
     height: calc(100dvh - 46px);
+  }
+
+  #sv-header .sub-menu {
+    padding: 25px 25px 50px 25px;
+    box-shadow: 0px 44px 46px -18px rgba(0, 0, 0, 0.18);
+    background-color: #FFFFFF;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
   }
 }
 
 @media (min-width: 1025px) and (max-width: 1198px) {
   body.logged-in.admin-bar #sv-header .sv-header__navigation,
-  body.logged-in.admin-bar #sv-header .sub-menu {
+  body.logged-in.admin-bar #sv-header .submenu-wrapper {
     top: 106px;
     height: calc(100dvh - 106px);
   }
@@ -367,12 +397,12 @@ body.body--with-checkbox-checked {
     width: 100%;
   }
 
-  #sv-header .sv-header__navigation .menu-item .sub-menu .menu-item::before,
+  #sv-header .sv-header__navigation .menu-item .submenu-wrapper .menu-item::before,
   #sv-header .sv-header__navigation .menu-item-has-children::after {
     display: none;
   }
 
-  #sv-header .sv-header__navigation .sub-menu {
+  #sv-header .sv-header__navigation .submenu-wrapper {
     display: block;
     opacity: 0;
     visibility: hidden;
@@ -389,7 +419,7 @@ body.body--with-checkbox-checked {
     box-shadow: 0 16px 24px 0 rgba(0,0,0,.15);
   }
 
-  #sv-header .sv-header__navigation .sub-menu:before {
+  #sv-header .sv-header__navigation .submenu-wrapper:before {
     content: "";
     bottom: 100%;
     height: 32px;
@@ -398,22 +428,22 @@ body.body--with-checkbox-checked {
     left: 0;
   }
 
-  #sv-header .sv-header__navigation .menu-item:hover .sub-menu,
-  #sv-header .sv-header__navigation .menu-item:focus-within .sub-menu {
+  #sv-header .sv-header__navigation .menu-item:hover .submenu-wrapper,
+  #sv-header .sv-header__navigation .menu-item:focus-within .submenu-wrapper {
     opacity: 1;
     visibility: visible;
   }
 
-  #sv-header .sv-header__navigation .sub-menu .menu-item-btn,
-  #sv-header .sv-header__navigation .sub-menu .menu-item-title {
+  #sv-header .sv-header__navigation .submenu-wrapper .menu-item-btn,
+  #sv-header .sv-header__navigation .submenu-wrapper .menu-item-title {
     display: none;
   }
 
-  #sv-header .sv-header__navigation .sub-menu li {
+  #sv-header .sv-header__navigation .submenu-wrapper li {
     position: relative;
   }
 
-  #sv-header .sv-header__navigation .sub-menu a {
+  #sv-header .sv-header__navigation .submenu-wrapper a {
     padding: 12px;
     background-color: #e4ecff;
     position: relative;
@@ -426,8 +456,8 @@ body.body--with-checkbox-checked {
     border-radius: 8px;
   }
 
-  #sv-header .sv-header__navigation .sub-menu a:hover,
-  #sv-header .sv-header__navigation .sub-menu a:focus {
+  #sv-header .sv-header__navigation .submenu-wrapper a:hover,
+  #sv-header .sv-header__navigation .submenu-wrapper a:focus {
     background-color: #6ec1E478;
     color: #1E2325;
   }
