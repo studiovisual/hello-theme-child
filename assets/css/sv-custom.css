@@ -208,10 +208,10 @@ body.body--with-checkbox-checked {
   #sv-header .sub-menu {
     background-color: #FFFFFF;
     position: fixed;
-    top: 74px;
+    top: 73px;
     left: 100%;
     width: 100%;
-    height: calc(100dvh - 74px);
+    height: calc(100dvh - 73px);
     z-index: 200;
     transition: all 500ms;
     overflow: auto;
@@ -350,7 +350,9 @@ body.body--with-checkbox-checked {
   }
 
   #sv-header .sv-header__navigation .sub-menu {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
     opacity: 0;
     visibility: hidden;
     position: absolute;
