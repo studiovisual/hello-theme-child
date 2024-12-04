@@ -34,3 +34,13 @@ function hello_elementor_child_scripts_styles() {
 
 }
 add_action( 'wp_enqueue_scripts', 'hello_elementor_child_scripts_styles', 20 );
+
+/*
+ * Redireciona a página de autor para a página inicial
+ */
+add_action('template_redirect', function() {
+    if (is_author()) {
+        wp_redirect(home_url()); // Redireciona para a página inicial
+        exit;
+    }
+});
