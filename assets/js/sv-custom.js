@@ -56,4 +56,24 @@ document.addEventListener('DOMContentLoaded', () => {
 		checkbox.addEventListener('change', updateBodyClass);
 		navCloseButton.addEventListener('click', resetSubmenu);
 	}
+
+	// Função para abrir a pesquisa
+	const overlay = document.getElementById('search-overlay');
+	const openButton = document.querySelector('.sv-header__icon-search');
+	const closeButton = document.getElementById('close-search-overlay');
+
+	function toggleOverlay(isVisible) {
+			overlay.classList.toggle('search-overlay--visible', isVisible);
+			overlay.classList.toggle('search-overlay--hidden', !isVisible);
+	}
+
+	openButton.addEventListener('click', () => toggleOverlay(true));
+
+	closeButton.addEventListener('click', () => toggleOverlay(false));
+
+	overlay.addEventListener('click', (e) => {
+			if (e.target === overlay) {
+					toggleOverlay(false);
+			}
+	});
 });

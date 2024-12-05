@@ -63,6 +63,91 @@ body.body--with-checkbox-checked {
   transform: translateY(-50%);
 }
 
+#sv-header .sv-header__icon-search:hover .sv-header__icon-image {
+  fill: #FDBA14;
+  transition: fill 0.3s;
+}
+
+#sv-header .search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  padding: 0 15%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  transform: scale(0.2);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#sv-header .search-overlay--visible {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: all; 
+}
+
+#sv-header .search-overlay--hidden {
+  opacity: 0;
+  transform: scale(0.2);
+  pointer-events: none;
+}
+
+#sv-header .search-overlay__content {
+  text-align: center;
+  color: #fff;
+  width: 100%;
+}
+
+#sv-header .search-overlay__form-container {
+  align-items: center;
+  display: flex;
+  position: relative;
+}
+
+#sv-header .search-overlay__form-container form,
+#sv-header .search-overlay__form-container label {
+  width: 100%;
+}
+
+#sv-header .search-form input[type="search"] {
+  background: 0 0;
+  border: solid #fff;
+  border-color: #FDBA14;
+  border-radius: 3px;
+  border-width: 0 0 1px;
+  font-family: "Montserrat", Sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.5;
+  padding: 0;
+  text-align: center;
+}
+
+#sv-header .search-field::placeholder {
+  color: #FFFFFF;
+  opacity: 0.7;
+}
+
+#sv-header .search-form input[type="submit"] {
+  display: none;
+}
+
+#sv-header .search-overlay__close {
+  cursor: pointer;
+  position: absolute;
+  right: -16px;
+  width: 20px;
+  height: 20px;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
 #sv-header .sv-header__buttons {
   width: 33%;
   order: 3;
@@ -315,14 +400,21 @@ body.body--with-checkbox-checked {
   #sv-header .sv-header__logo {
     order: 1;
   }
-
+  
   #sv-header .sv-header__logo-text {
     text-align: left;
   }
 
+  #sv-header .sv-header__icon-search {
+    width: 100%;
+    max-width: fit-content;
+    order: 3;
+    position: static;
+  }
+
   #sv-header .sv-header__buttons {
     width: auto;
-    order: 3;
+    order: 4;
     gap: 8px;
     display: flex;
     justify-content: flex-end;
