@@ -44,3 +44,21 @@ add_action('template_redirect', function() {
         exit;
     }
 });
+
+/*
+ * Desabilita a API REST para visitantes e usuários logados
+ */
+
+add_filter('rest_authentication_errors', function($result) {
+    // Permitir acesso à API para administradores apenas
+    if (!is_user_logged_in()) {
+        return new WP_Error('rest_disabled', 'A API REST está desativada para visitantes.', array('status' => 403));
+    }
+
+    // Bloquear até mesmo para usuários logados, exceto administradores
+    if (!current_user_can('manage_options')) {
+        return new WP_Error('rest_disabled', 'A API REST está desativada para este usuário.', array('status' => 403));
+    }
+
+    return $result;
+});
