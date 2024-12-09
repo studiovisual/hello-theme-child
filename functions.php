@@ -76,38 +76,44 @@ class Custom_Submenu_Walker extends Walker_Nav_Menu {
 	 * @param stdClass $args Configurações do menu.
 	 */
 
-	public function start_lvl( &$output, $depth = 0, $args = null ) {
-    if ( $depth === 0 ) {
-			// Adiciona a div que encapsula o submenu e o botão "Voltar".
-			$output .= '<div class="submenu-wrapper">';
+		public function start_lvl( &$output, $depth = 0, $args = null ) {
+			if ( $depth === 0 ) {
+					// Adiciona a div que encapsula todo o conteúdo do submenu.
+					$output .= '<div class="submenu-wrapper">';
 
-			// Adiciona o botão "Voltar".
-			$output .= '<button id="sv-header__back-menu" class="sv-header__back-button" aria-label="Voltar ao Menu Principal">';
-			$output .= '<img src="' . esc_url( get_stylesheet_directory_uri() ) . '/assets/icons/arrow-back-menu.svg" alt="Voltar" width="18" height="18">';
-			$output .= '</button>';
-    }
+					// Adiciona o botão "Voltar".
+					$output .= '<button id="sv-header__back-menu" class="sv-header__back-button" aria-label="Voltar ao Menu Principal">';
+					$output .= '<img src="' . esc_url( get_stylesheet_directory_uri() ) . '/assets/icons/arrow-back-menu.svg" alt="Voltar" width="18" height="18">';
+					$output .= '</button>';
+			}
 
-    // Abre o submenu.
-    $output .= '<ul class="sub-menu">';
+			// Adiciona a div pai para encapsular o título e o submenu.
+			$output .= '<div class="submenu-content">';
 
-    if ( $depth === 0 ) {
-        // Adiciona o título do submenu, se estiver definido.
-        if ( ! empty( $this->current_item_title ) ) {
-					$output .= '<li class="menu-item menu-item-title">';
-					$output .= '<span>' . esc_html( $this->current_item_title ) . '</span>';
-					$output .= '</li>';
-        }
-    }
+			if ( $depth === 0 ) {
+					// Adiciona o título do submenu, se estiver definido.
+					if ( ! empty( $this->current_item_title ) ) {
+							$output .= '<div class="menu-item menu-item-title">';
+							$output .= '<span>' . esc_html( $this->current_item_title ) . '</span>';
+							$output .= '</div>';
+					}
+			}
+
+			// Abre o submenu.
+			$output .= '<ul class="sub-menu">';
 	}
 
 	public function end_lvl( &$output, $depth = 0, $args = null ) {
-		// Fecha o submenu.
-		$output .= '</ul>';
+			// Fecha o submenu.
+			$output .= '</ul>';
 
-		if ( $depth === 0 ) {
-			// Fecha a div de encapsulamento.
-			$output .= '</div>';
-		}
+			// Fecha .submenu-content
+			$output .= '</div>'; 
+
+			if ( $depth === 0 ) {
+					// Fecha .submenu-wrapper
+					$output .= '</div>'; 
+			}
 	}
 
 	/**
