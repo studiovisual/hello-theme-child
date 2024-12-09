@@ -14,4 +14,5 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
 
 /* Add your custom styles here */
 
+@import './assets/css/sv-variables.css';
 @import './assets/css/sv-header.css';
