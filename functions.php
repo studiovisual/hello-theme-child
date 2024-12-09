@@ -37,7 +37,7 @@ add_action( 'wp_enqueue_scripts', 'hello_elementor_child_scripts_styles', 20 );
 function enqueue_svcustom_scripts() {
 	wp_enqueue_script(
 			'custom-script',
-			get_stylesheet_directory_uri() . '/assets/js/sv-custom.js',
+			get_stylesheet_directory_uri() . '/assets/js/sv-header.js',
 			array(),
 			HELLO_ELEMENTOR_CHILD_VERSION
 	);
