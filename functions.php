@@ -141,3 +141,16 @@ function add_menu_description_to_items($items, $args) {
 	return $items;
 }
 add_filter('wp_nav_menu_objects', 'add_menu_description_to_items', 10, 2);
+
+function hello_elementor_child_enqueue_styles() {
+    // 
+    wp_enqueue_style('hello-elementor', get_template_directory_uri() . '/style.css');
+    
+    // styles footer
+    wp_enqueue_style('sv-footer', get_stylesheet_directory_uri() . '/assets/css/sv-footer.css', array(), null);
+    
+	add_action('wp_enqueue_scripts', 'hello_elementor_child_enqueue_styles', 20);
+
+}
+
+add_action('wp_enqueue_scripts', 'hello_elementor_child_enqueue_styles');

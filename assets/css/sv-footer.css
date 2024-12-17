@@ -1,0 +1,224 @@
+/* Footer */
+
+.sv-footer {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 24px;
+    font-family: "sweet-sans-pro", sans-serif;
+    background-color: #02071a;
+}
+
+/* Seção principal do sv-footer */
+.sv-footer__sessao-principal {
+    display: flex;
+    padding: 24px 0;
+    flex-wrap: wrap;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* Coluna do sv-footer */
+.sv-footer__coluna:first-child {
+    flex: 0 0 38.484%;
+    padding: 42px 10px 10px 10px;
+}
+
+.sv-footer__coluna {
+    padding: 24px;
+    flex: 1;
+    min-width: 180px;
+}
+
+.sv-footer__coluna:first-child p {
+    max-width: 265px;
+}
+
+.sv-footer__coluna p {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.sv-footer__coluna img {
+    max-width: 190px;
+    height: auto;
+    padding-bottom: 44px;
+}
+
+.sv-footer__coluna h2 {
+    color: #1c2122;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 16px 0;
+}
+
+.sv-footer__coluna a {
+    display: block;
+    color: #bdcae8;
+    transition: color .3s;
+    font-family: cairo, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 3em;
+}
+
+.sv-footer__coluna a:hover {
+    color: #fff;
+}
+
+/* Acordeão */
+.sv-footer__item-acordeao {
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.sv-footer__titulo-acordeao {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #333;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sv-footer .sv-footer__coluna details summary {
+    display: flex;
+}
+
+.sv-footer__item-acordeao summary a {
+    color: #fff;
+}
+
+.sv-footer__item-acordeao ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sv-footer__conteudo-acordeao {
+    display: block;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, opacity 0.4s ease-out;
+}
+
+.sv-footer__conteudo-acordeao a {
+    display: block;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 5px 0;
+}
+
+.sv-footer__item-acordeao--aberto .sv-footer__conteudo-acordeao {
+    padding: 10px 10px 10px 35px;
+}
+
+/* Ícones sociais */
+.sv-footer__icones-sociais {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    gap: 0px;
+}
+
+.sv-footer__icones-sociais a img {
+    width: 100%;
+}
+
+/* Tablet  */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+    .sv-footer__sessao-principal {
+        flex-wrap: nowrap;
+    }
+
+    .sv-footer__sessao-principal .sv-footer__coluna:first-child {
+        flex: auto;
+    }
+
+    .sv-footer__sessao-principal img {
+        max-width: 110px;
+    }
+
+    .sv-footer__sessao-principal .sv-footer__coluna p {
+        font-size: 15px;
+    }
+
+    .sv-footer__coluna p {
+        font-size: 16px;
+    }
+
+    .sv-footer__icones-sociais {
+        display: flex;
+    }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .sv-footer__sessao-principal .sv-footer__coluna {
+        width: 100%;
+    }
+
+    .sv-footer__sessao-principal {
+        flex-direction: column;
+    }
+
+    .sv-footer__icones-sociais {
+        display: flex;
+        justify-content: center;
+        padding-top: 30px;
+    }
+
+    footer .sv-footer__coluna details {
+        padding: 0px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        align-content: center;
+        flex-direction: column;
+    }
+
+    .sv-footer__sessao-principal .sv-footer__coluna {
+        padding: 0px;
+        text-align: center;
+    }
+
+    .sv-footer__sessao-principal .sv-footer__coluna p {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .sv-footer__sessao-principal .sv-footer__coluna:first-child p {
+        max-width: unset;
+        margin: 0 auto;
+    }
+
+    .sv-footer__sessao-principal img {
+        max-width: 200px;
+        padding-top: 30px;
+    }
+
+    .sv-footer__sessao-principal a {
+        font-size: 18px;
+    }
+
+    .sv-footer__coluna details summary {
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    footer .sv-footer__coluna details ul {
+        margin-top: 10px;
+    }
+
+    footer .sv-footer__coluna details[open] ul li {
+        padding: 0px 0px;
+    }
+}
