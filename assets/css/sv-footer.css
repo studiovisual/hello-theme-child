@@ -8,7 +8,7 @@
     background-color: #02071a;
 }
 
-/* Sessão principal do sv-footer */
+/* Seção principal do sv-footer */
 .sv-footer__sessao-principal {
     display: flex;
     padding: 24px 0;
@@ -58,7 +58,6 @@
     transition: color .3s;
     font-family: cairo, sans-serif;
     font-size: 16px;
-    font-weight: 700;
     line-height: 3em;
 }
 
@@ -89,7 +88,7 @@
 }
 
 .sv-footer__item-acordeao summary a {
-    color: #fff;
+    color: #ffffff !important;
 }
 
 .sv-footer__item-acordeao ul {
@@ -114,6 +113,10 @@
     text-decoration: none;
     padding: 5px 0;
 }
+
+.sv-footer__coluna details ul li a { 
+	color: #bdcae8; 
+} 
 
 .sv-footer__item-acordeao--aberto .sv-footer__conteudo-acordeao {
     padding: 10px 10px 10px 35px;
