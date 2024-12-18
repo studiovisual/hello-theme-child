@@ -46,7 +46,7 @@ $stylesheet_dir_uri = esc_url(get_stylesheet_directory_uri());
 						'theme_location' => 'primary-header-menu',
 						'container'      => false,
 						'menu_class'     => 'sv-header__menu-list',
-						'depth'          => 2,
+						'depth'          => 3,
 						'walker'         => new Custom_Submenu_Walker(),
 					));
 				}
