@@ -141,3 +141,44 @@ function add_menu_description_to_items($items, $args) {
 	return $items;
 }
 add_filter('wp_nav_menu_objects', 'add_menu_description_to_items', 10, 2);
+
+function add_custom_menu_image_field($item_id, $item, $depth, $args) {
+	// IDs dos itens de menu que devem ter o campo de imagem
+	$allowed_ids = array(62, 259, 260);
+
+	// Verifica se o item de menu está na lista de IDs permitidos
+	if (in_array($item_id, $allowed_ids)) {
+			$image_url = get_post_meta($item_id, '_menu_item_image_url', true);
+
+			?>
+			<p class="field-menu-item-image-url description description-wide">
+					<label for="edit-menu-item-image-url-<?php echo $item_id; ?>">
+							<?php _e('Image URL'); ?><br>
+							<input type="text" id="edit-menu-item-image-url-<?php echo $item_id; ?>" class="widefat code edit-menu-item-image-url" name="menu-item-image-url[<?php echo $item_id; ?>]" value="<?php echo esc_attr($image_url); ?>" />
+							<br />
+							<small><?php _e('Insira o URL da imagem que deseja usar para este item de menu.'); ?></small>
+					</label>
+			</p>
+			<?php
+	}
+}
+add_filter('wp_nav_menu_item_custom_fields', 'add_custom_menu_image_field', 10, 4);
+
+function save_custom_menu_image_field($menu_id, $menu_item_db_id, $args) {
+	if (isset($_POST['menu-item-image-url'][$menu_item_db_id])) {
+			$image_url = sanitize_text_field($_POST['menu-item-image-url'][$menu_item_db_id]);
+			update_post_meta($menu_item_db_id, '_menu_item_image_url', $image_url);
+	}
+}
+add_action('wp_update_nav_menu_item', 'save_custom_menu_image_field', 10, 3);
+
+function add_image_to_nav_menu($item_output, $item, $args, $depth) {
+	$image_url = get_post_meta($item->ID, '_menu_item_image_url', true);
+
+	if (!empty($image_url)) {
+			$item_output = '<a href="' . esc_url($item->url) . '"><img src="' . esc_url($image_url) . '" alt="" class="menu-item-image" /> ' . $item->title . '</a>';
+	}
+
+	return $item_output;
+}
+add_filter('walker_nav_menu_start_el', 'add_image_to_nav_menu', 10, 4);
