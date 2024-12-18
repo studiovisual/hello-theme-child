@@ -21,28 +21,49 @@ define( 'HELLO_ELEMENTOR_CHILD_VERSION', '2.0.0' );
  *
  * @return void
  */
+// Função para enfileirar estilos e scripts do tema e do modal
 function hello_elementor_child_scripts_styles() {
-
+	// Enfileira o estilo do tema
 	wp_enqueue_style(
-		'hello-elementor-child-style',
-		get_stylesheet_directory_uri() . '/style.css',
-		[
-			'hello-elementor-theme-style',
-		],
-		HELLO_ELEMENTOR_CHILD_VERSION
+			'hello-elementor-child-style',
+			get_stylesheet_directory_uri() . '/style.css',
+			[
+					'hello-elementor-theme-style',
+			],
+			HELLO_ELEMENTOR_CHILD_VERSION
 	);
-}
-add_action( 'wp_enqueue_scripts', 'hello_elementor_child_scripts_styles', 20 );
 
-function enqueue_svcustom_scripts() {
+	// Enfileira o script do tema
 	wp_enqueue_script(
 			'custom-script',
 			get_stylesheet_directory_uri() . '/assets/js/sv-custom.js',
 			array(),
-			HELLO_ELEMENTOR_CHILD_VERSION
+			HELLO_ELEMENTOR_CHILD_VERSION,
+			true
+	);
+
+	// Enfileira o CSS do modal
+	wp_enqueue_style(
+			'modal-hire-popup',
+			get_stylesheet_directory_uri() . '/assets/css/partials/modal-hire-popup.css',
+			array(),
+			HELLO_ELEMENTOR_CHILD_VERSION,
+			'all'
+	);
+	
+	// Enfileira o JS do modal
+	wp_enqueue_script(
+			'modal-hire-popup',
+			get_stylesheet_directory_uri() . '/assets/js/partials/modal-hire-popup.js',
+			array(),
+			HELLO_ELEMENTOR_CHILD_VERSION,
+			true
 	);
 }
-add_action('wp_enqueue_scripts', 'enqueue_svcustom_scripts');
+
+// Hook para adicionar os estilos e scripts ao front-end
+add_action('wp_enqueue_scripts', 'hello_elementor_child_scripts_styles', 20);
+
 
 /**
  * Registra os menus de navegação
@@ -182,3 +203,30 @@ function add_image_to_nav_menu($item_output, $item, $args, $depth) {
 	return $item_output;
 }
 add_filter('walker_nav_menu_start_el', 'add_image_to_nav_menu', 10, 4);
+
+/**
+ * Gera o botão "Agendar demonstração gratuita" com popup para exibir o formulário apropriado conforme o idioma.
+ *
+ * @param string $class Classes adicionais para o botão.
+ * @return void
+ */
+function sv_render_hire_button($class = '') {
+	// Define o idioma atual ou padrão
+	$language_code = function_exists('icl_object_id') ? ICL_LANGUAGE_CODE : 'default';
+
+	// Define texto com base no idioma
+	$text = ($language_code === 'en') ? 'Schedule a Free Demo' : 'Agendar demonstração gratuita';
+
+	// Adiciona classes padrão e classes extras
+	$button_class = trim("sv-header__button sv-header__button--hire $class");
+	?>
+
+	<a href="javascript:void(0);" 
+		 class="<?php echo esc_attr($button_class); ?>" 
+		 title="<?php echo esc_attr($text); ?>" 
+		 onclick="togglePopup()">
+			<?php echo esc_html($text); ?>
+	</a>
+
+	<?php
+}

@@ -36,9 +36,9 @@ $stylesheet_dir_uri = esc_url(get_stylesheet_directory_uri());
 		</div>
 
 		<div class="sv-header__buttons d-none-mobile">
-			<a href="/contrate" class="sv-header__button sv-header__button--hire" title="Agendar demonstração gratuita">Agendar demonstração gratuita</a>
+			<?php sv_render_hire_button(); ?>
 		</div>
-
+		
 		<nav id="sv-header__menu" class="sv-header__navigation">
 			<?php
 				if (has_nav_menu('primary-header-menu')) {
@@ -52,7 +52,9 @@ $stylesheet_dir_uri = esc_url(get_stylesheet_directory_uri());
 				}
 			?>
 
-			<a href="/contrate" class="sv-header__button sv-header__button--hire d-none-desktop" title="Agendar demonstração gratuita">Agendar demonstração gratuita</a>
+			<?php sv_render_hire_button('d-none-desktop'); ?>
 		</nav>
 	</div>
 </header>
+
+<?php get_template_part('template-parts/partials/modal', 'hire-popup'); ?>
