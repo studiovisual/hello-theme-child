@@ -1,7 +1,7 @@
-const popup = document.getElementById('hire-popup');
+const popup = document.getElementById('demo-modal');
 
 function togglePopup() {
-  popup.classList.toggle('modal-hire-popup--show');
+  popup.classList.toggle('demo-modal--show');
 }
 
 popup.addEventListener('click', (event) => {

@@ -36,7 +36,7 @@ $stylesheet_dir_uri = esc_url(get_stylesheet_directory_uri());
 		</div>
 
 		<div class="sv-header__buttons d-none-mobile">
-			<?php sv_render_hire_button(); ?>
+			<?php sv_render_menu_button(); ?>
 		</div>
 		
 		<nav id="sv-header__menu" class="sv-header__navigation">
@@ -52,9 +52,9 @@ $stylesheet_dir_uri = esc_url(get_stylesheet_directory_uri());
 				}
 			?>
 
-			<?php sv_render_hire_button('d-none-desktop'); ?>
+			<?php sv_render_menu_button('d-none-desktop'); ?>
 		</nav>
 	</div>
 </header>
 
-<?php get_template_part('template-parts/partials/modal', 'hire-popup'); ?>
+<?php get_template_part('template-parts/partials/demo', 'modal'); ?>

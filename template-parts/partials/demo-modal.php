@@ -7,9 +7,9 @@ $text = ($language_code === 'en') ? 'Schedule a Free Demo' : 'Agendar demonstra�
 ?>
 
 <!-- Popup Modal -->
-<div id="hire-popup" class="hire-popup-overlay">
-    <div class="hire-popup-content">
-        <span class="hire-popup-close" onclick="closePopup()">&times;</span>
+<div id="demo-modal" class="demo-modal-overlay">
+    <div class="demo-modal-content">
+        <span class="demo-modal-close" onclick="closePopup()">&times;</span>
         <div id="form-container">
             <?php if ($language_code === 'en') : ?>
                 <!-- Formulário em inglês -->

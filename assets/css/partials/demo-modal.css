@@ -1,4 +1,4 @@
-.hire-popup-overlay {
+.demo-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -11,11 +11,11 @@
   z-index: 9999;
 }
 
-.hire-popup-overlay.modal-hire-popup--show {
+.demo-modal-overlay.demo-modal--show {
   display: flex;
 }
 
-.hire-popup-content {
+.demo-modal-content {
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
@@ -23,7 +23,7 @@
   max-width: 600px;
 }
 
-.hire-popup-close {
+.demo-modal-close {
   position: absolute;
   top: 10px;
   right: 10px;
