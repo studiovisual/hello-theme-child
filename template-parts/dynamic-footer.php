@@ -131,9 +131,15 @@ $footer_nav_menu = wp_nav_menu( [
   <!-- Sessão 3 -->
   <div class="footer-session footer-session-3">
     <div class="footer-session-3-links">
-      <a href="https://siteware.intest.com.br/politicas-de-privacidade/">Políticas de privacidade</a>
-      <a href="https://app.pipefy.com/public/form/v7kOE2Us">Canal de denúncias</a>
-      <a href="https://siteware.stratws.com/">Acessar o STRATWs One</a>
+        <a href="https://siteware.intest.com.br/politicas-de-privacidade/">
+            <?php _e( 'Políticas de privacidade', 'hello-elementor-child' ); ?>
+        </a>
+        <a href="https://app.pipefy.com/public/form/v7kOE2Us">
+            <?php _e( 'Canal de denúncias', 'hello-elementor-child' ); ?>
+        </a>
+        <a href="https://siteware.stratws.com/">
+            <?php _e( 'Acessar o STRATWs One', 'hello-elementor-child' ); ?>
+        </a>
     </div>
 
     <div class="footer-session-3-social">
@@ -157,6 +163,6 @@ $footer_nav_menu = wp_nav_menu( [
   </div>
 
   <section class="footer-copyright">
-    <p>Siteware © 2024 Todos os direitos reservados</p>
+    <p><?php _e( 'Siteware © 2024 Todos os direitos reservados', 'hello-elementor-child' ); ?></p>
   </section>
 </footer>
