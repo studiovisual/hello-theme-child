@@ -154,6 +154,18 @@ function add_menu_description_to_items($items, $args) {
 }
 add_filter('wp_nav_menu_objects', 'add_menu_description_to_items', 10, 2);
 
+/**
+ * Adiciona um campo de URL de imagem aos itens de menu selecionados.
+ *
+ * Esta função exibe um field no painel de administração para itens de menu específicos,
+ * permitindo que o usuário insira uma URL de imagem que será associada ao item de menu.
+ * O campo só é exibido para os itens de menu com IDs específicos definidos na variável `$allowed_ids`.
+ *
+ * @param int $item_id O ID do item de menu.
+ * @param WP_Post $item Dados do item de menu.
+ * @param int $depth Nível de profundidade do menu.
+ * @param object $args Argumentos do menu.
+ */
 function add_custom_menu_image_field($item_id, $item, $depth, $args) {
 	// IDs dos itens de menu que devem ter o campo de imagem
 	$allowed_ids = array(62, 259, 260);
@@ -176,6 +188,16 @@ function add_custom_menu_image_field($item_id, $item, $depth, $args) {
 }
 add_filter('wp_nav_menu_item_custom_fields', 'add_custom_menu_image_field', 10, 4);
 
+/**
+ * Salva o URL da imagem inserido nos itens de menu.
+ *
+ * Quando um usuário insere ou edita o URL de uma imagem no campo personalizado do menu,
+ * essa função armazena o valor no banco de dados, associando-o ao item de menu correspondente.
+ *
+ * @param int $menu_id O ID do menu.
+ * @param int $menu_item_db_id O ID do item de menu no banco de dados.
+ * @param object $args Argumentos adicionais para a atualização.
+ */
 function save_custom_menu_image_field($menu_id, $menu_item_db_id, $args) {
 	if (isset($_POST['menu-item-image-url'][$menu_item_db_id])) {
 			$image_url = sanitize_text_field($_POST['menu-item-image-url'][$menu_item_db_id]);
@@ -184,6 +206,18 @@ function save_custom_menu_image_field($menu_id, $menu_item_db_id, $args) {
 }
 add_action('wp_update_nav_menu_item', 'save_custom_menu_image_field', 10, 3);
 
+/**
+ * Adiciona uma imagem ao item de menu, se houver um URL de imagem.
+ *
+ * Esta função verifica se um item de menu possui um URL de imagem associado
+ * e, caso exista, adiciona a imagem ao lado do título do item no menu.
+ *
+ * @param string $item_output O HTML de saída do item de menu.
+ * @param object $item Dados do item de menu.
+ * @param object $args Argumentos do menu.
+ * @param int $depth Nível de profundidade do menu.
+ * @return string O HTML do item de menu, com a imagem adicionada, se aplicável.
+ */
 function add_image_to_nav_menu($item_output, $item, $args, $depth) {
 	$image_url = get_post_meta($item->ID, '_menu_item_image_url', true);
 
