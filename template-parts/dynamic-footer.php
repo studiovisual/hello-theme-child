@@ -108,19 +108,19 @@ $footer_nav_menu = wp_nav_menu( [
     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/TOP-ScaleUps-black.png.webp" alt="TOP Scaleups">
   </div>
   <div class="footer-session-2-column">
-    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/Microsoft-partner-06.svg" alt="Microsoft Partner">
+    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/Microsoft-partner-06.webp" alt="Microsoft Partner">
   </div>
   <div class="footer-session-2-column">
-    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/Cubo-05.svg" alt="Cubo">
+    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/Cubo-05.webp" alt="Cubo">
   </div>
   <div class="footer-session-2-column">
-    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/Criatec-04.svg" alt="Criatec">
+    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/Criatec-04.webp" alt="Criatec">
   </div>
   <div class="footer-session-2-column">
-    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/Crescera-02.svg" alt="Crescera Capital">
+    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/Crescera-02.webp" alt="Crescera Capital">
   </div>
   <div class="footer-session-2-column">
-    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/GPTW-03.svg" alt="Great Place to Work Certification">
+    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/GPTW-03.webp" alt="Great Place to Work Certification">
   </div>
 </div>
 
@@ -131,7 +131,7 @@ $footer_nav_menu = wp_nav_menu( [
   <!-- Sessão 3 -->
   <div class="footer-session footer-session-3">
     <div class="footer-session-3-links">
-      <a href="https://www.siteware.com.br/politicas-de-privacidade/">Políticas de privacidade</a>
+      <a href="https://siteware.intest.com.br/politicas-de-privacidade/">Políticas de privacidade</a>
       <a href="https://app.pipefy.com/public/form/v7kOE2Us">Canal de denúncias</a>
       <a href="https://siteware.stratws.com/">Acessar o STRATWs One</a>
     </div>
@@ -139,17 +139,17 @@ $footer_nav_menu = wp_nav_menu( [
     <div class="footer-session-3-social">
       <p>Nos siga nas redes sociais</p>
       <div class="icones-sociais">
-    <a href="https://br.linkedin.com/company/siteware" aria-label="Visite nosso perfil no LinkedIn" title="Linkedin Siteware">
+    <a href="https://br.linkedin.com/company/siteware" target="_blank" aria-label="Visite nosso perfil no LinkedIn" title="Linkedin Siteware">
 	  <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/icons/social-media/linkedin.svg" alt="Linkedin" width="24" height="24">
     </a>
-    <a href="https://pt-br.facebook.com/Siteware/" aria-label="Visite nosso perfil no Facebook" title="Facebook Siteware">
+    <a href="https://pt-br.facebook.com/Siteware/" target="_blank" aria-label="Visite nosso perfil no Facebook" title="Facebook Siteware">
 	  <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/icons/social-media/facebook.svg" alt="Facebook" width="24" height="24">
     </a>
-    <a href="https://www.instagram.com/sitewaresolucoes/" aria-label="Visite nosso perfil no Instagram" title="Instagram Siteware">
+    <a href="https://www.instagram.com/sitewaresolucoes/" target="_blank" aria-label="Visite nosso perfil no Instagram" title="Instagram Siteware">
 	  <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/icons/social-media/instagram.svg" alt="Instagram" width="24" height="24">
     </a>
     
-    <a href="https://www.youtube.com/c/Siteware" aria-label="Visite nosso perfil no YouTube" title="YouTube Siteware">
+    <a href="https://www.youtube.com/c/Siteware" target="_blank" aria-label="Visite nosso perfil no YouTube" title="YouTube Siteware">
 	  <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/icons/social-media/youtube.svg" alt="YouTube" width="24" height="24">
     </a>
   </div>

@@ -7,6 +7,10 @@ footer {
   font-family: "Heebo", sans-serif;
 }
 
+footer li {
+	list-style-type: none;
+}
+
 /* Estilos gerais para o acordeão */
 .footer-accordion-item {
   margin-bottom: 10px;
@@ -74,6 +78,7 @@ footer {
   transform: rotate(0deg);
 }
 
+
 .footer-accordion-item .footer-accordion-title::before {
   content: "";
   display: inline-block;
@@ -121,6 +126,10 @@ footer {
   font-size: 14px;
   font-weight: 700;
   margin: 16px 0;
+}
+
+.footer-session-1.principal summary a {
+    font-weight: 700;
 }
 
 .footer-session-1.principal a {
@@ -203,7 +212,7 @@ footer {
 .footer-session-2-container {
   display: flex;
   justify-content: space-between;
-  gap: 25px;
+  gap: 0px;
   flex-wrap: wrap;
 }
 
@@ -308,7 +317,8 @@ footer .column details {
   border-radius: 5px;
 }
 
-.footer-menu-item summary::marker {
+.footer-menu-item summary::marker, 
+.footer-menu-item summary::-webkit-details-marker {
   display: none;
 }
 
@@ -357,7 +367,47 @@ footer .column details summary::marker {
 		display: block;
 	}
 
-/* Responsividade */
+
+/* Tablet */
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+    .footer-session-3 {
+        gap: 30px;
+    }
+	
+	.footer-session-1.principal {
+    flex-wrap: nowrap;
+}
+
+    .footer-session-3 .footer-session-3-links {
+        gap: 0px;
+    }
+
+    .footer-session-3 .footer-session-3-links a {
+        max-width: 110px;
+    }
+
+    .footer-session-3 .footer-session-3-social {
+        gap: 0px;
+    }
+
+    .footer-session-3 .footer-session-3-social p {
+        max-width: 100px;
+    }
+
+    .icones-sociais {
+        gap: 15px;
+    }
+
+	.footer-session-1.principal .column {
+    min-width: unset;
+}
+
+}
+
+
+/* Mobile */
 @media (max-width: 767px) {
 	
 	footer {
@@ -390,6 +440,16 @@ footer .column details summary::marker {
 	  padding: 0px 0px 24px 0px;
   }
 
+  .footer-session-3 .footer-session-3-social p {
+  line-height: 16px;
+  font-size: 16px;
+}
+	
+  .footer-session-3 .footer-session-3-links a {
+	font-size: 16px;
+	line-height: 16px;
+  }
+	
   .footer-session-1.principal img {
     height: unset;
   }
@@ -428,15 +488,13 @@ footer .column details summary::marker {
     overflow: hidden;
     padding-left: 20px;
     margin: 0;
-    transition: max-height 0.5s ease-in-out; /* Transição mais suave */
+    transition: max-height 0.5s ease-in-out; 
   }
 
-  /* Aumentando max-height para dar espaço suficiente para o conteúdo */
   .footer-menu-item[open] ul {
-    max-height: 500px; /* Ajuste conforme necessário, ou um valor mais alto */
+    max-height: 500px; 
   }
 
-  /* Garantir que o conteúdo da lista não ultrapasse a altura máxima */
   .footer-menu-item[open] summary ul {
     max-height: 500px;
   }
@@ -471,8 +529,9 @@ footer .column details summary::marker {
   .footer-session-3 {
     flex-direction: column;
     align-items: flex-start;
-	      padding: 24px 24px 24px 15px;
+	padding: 24px 24px 24px 15px;
   }
+	
 
   .footer-session-3 .footer-session-3-links {
     flex-direction: column;
@@ -525,11 +584,13 @@ footer .column details summary::marker {
 }
 	
 	.footer-session-1.principal a {
-		font-size: 18px;
+		font-size: 16px;
+		line-height: 16px;
 	}
 	
   footer .column details summary {
-    font-size: 18px;
+    font-size: 16px;
+	line-height: 16px;
     padding: 10px;
   }
 
