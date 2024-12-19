@@ -1,15 +1,24 @@
 <?php
-// Define o idioma atual ou padrão
-$language_code = function_exists('icl_object_id') ? ICL_LANGUAGE_CODE : 'default';
-
-// Define texto com base no idioma
-$text = ($language_code === 'en') ? 'Schedule a Free Demo' : 'Agendar demonstração gratuita';
+    $language_code = function_exists('icl_object_id') ? ICL_LANGUAGE_CODE : 'default'; 
+    $stylesheet_dir_uri = esc_url(get_stylesheet_directory_uri());
 ?>
+
 
 <!-- Popup Modal -->
 <div id="demo-modal" class="demo-modal-overlay">
-    <div class="demo-modal-content">
-        <span class="demo-modal-close" onclick="closePopup()">&times;</span>
+    <div class="demo-modal__content">
+        <div class="demo-modal-close-container">
+            <button class="demo-modal__close" onclick="togglePopup()" aria-label="Fechar popup">
+                <img
+                    src="<?php echo $stylesheet_dir_uri; ?>/assets/icons/menu-close.svg"
+                    alt="Fechar Menu"
+                    class="demo-modal__close-icon"
+                    width="24"
+                    height="24"
+                >
+            </button>
+        </div>
+
         <div id="form-container">
             <?php if ($language_code === 'en') : ?>
                 <!-- Formulário em inglês -->
@@ -30,6 +39,10 @@ $text = ($language_code === 'en') ? 'Schedule a Free Demo' : 'Agendar demonstra�
                     });
                 </script>
             <?php endif; ?>
+        </div>
+
+        <div class="demo-modal-close-container">
+            <button class="demo-modal__close demo-modal__text" onclick="togglePopup()" aria-label="Fechar popup">Fechar</button>
         </div>
     </div>
 </div>

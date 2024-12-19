@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		const backButton = header.querySelectorAll('#sv-header__back-menu');
 		const subMenus = header.querySelectorAll('.menu-item-has-children .sub-menu');
 		const menuItems = header.querySelectorAll('.menu-item-has-children > a');
+		const popup = document.getElementById('demo-modal');
 
 		const updateBodyClass = () => {
 			const isChecked = checkbox.checked;
@@ -20,6 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		const resetSubmenu = () => {
 			subMenus.forEach(submenu => submenu.classList.remove('submenu-container--show'));
+
+			  // Garantir que o modal seja fechado removendo a classe 'demo-modal--show'
+				popup.classList.remove('demo-modal--show');
+				
+				// Remover o overflow do body
+				document.body.classList.remove('overflow-hidden');
 		};
 
 		backButton.forEach(button => {

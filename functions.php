@@ -211,22 +211,17 @@ add_filter('walker_nav_menu_start_el', 'add_image_to_nav_menu', 10, 4);
  * @return void
  */
 function sv_render_menu_button($class = '') {
-	// Define o idioma atual ou padrão
 	$language_code = function_exists('icl_object_id') ? ICL_LANGUAGE_CODE : 'default';
-
-	// Define texto com base no idioma
 	$text = ($language_code === 'en') ? 'Request a free tryout' : 'Agendar demonstração gratuita';
-
-	// Adiciona classes padrão e classes extras
 	$button_class = trim("sv-header__button sv-header__button--hire $class");
+
 	?>
-
-	<a href="javascript:void(0);" 
-		 class="<?php echo esc_attr($button_class); ?>" 
-		 title="<?php echo esc_attr($text); ?>" 
-		 onclick="togglePopup()">
+		<a
+			href="javascript:void(0);" 
+			class="<?php echo esc_attr($button_class); ?>" 
+			title="<?php echo esc_attr($text); ?>" 
+			onclick="togglePopup()">
 			<?php echo esc_html($text); ?>
-	</a>
-
+		</a>
 	<?php
 }
