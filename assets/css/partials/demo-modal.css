@@ -81,3 +81,15 @@ body.logged-in.admin-bar #demo-modal.demo-modal-overlay {
     max-width: 500px;
   }
 }
+
+@media(min-width: 768px) {
+  #demo-modal.demo-modal-overlay {
+    top: 0;
+    height: 100dvh;
+  }
+
+  body.logged-in.admin-bar #demo-modal.demo-modal-overlay {
+    top: 32px;
+    height: calc(100dvh - 32px);
+  }
+}
