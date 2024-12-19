@@ -3,23 +3,23 @@
 }
 
 #demo-modal.demo-modal-overlay {
-  position: fixed;
-  left: 0;
-  background-color: rgba(0,0,0,.8);
+  align-items: flex-start;
+  background-color: var(--color-overlay-dark);
   display: none;
-  z-index: 9999;
-  top: 72px;
-  padding: 10px;
-  overflow: auto;
-  width: 100vw;
   height: calc(100dvh - 72px);
   justify-content: center;
-  align-items: flex-start;
+  left: 0;
+  overflow: auto;
+  padding: 10px;
+  position: fixed;
+  top: 72px;
+  width: 100vw;
+  z-index: 9999;
 }
 
 body.logged-in.admin-bar #demo-modal.demo-modal-overlay {
-  top: 118px;
   height: calc(100dvh - 118px);
+  top: 118px;
 }
 
 #demo-modal.demo-modal-overlay.demo-modal--show {
@@ -27,33 +27,33 @@ body.logged-in.admin-bar #demo-modal.demo-modal-overlay {
 }
 
 #demo-modal .demo-modal__content {
-  background-color: #fff;
+  background-color: var(--color-FFFF);
   border-radius: 4px;
   width: 100%;
 }
 
 #demo-modal .demo-modal-close-container {
-  position: relative;
+  border-bottom: 1px solid var(--color-DEE2);
   display: flex;
-  justify-content: flex-end;
-  padding: 16px;
-  border-bottom: 1px solid #DEE2E6;
   height: 56px;
+  justify-content: flex-end;
   max-height: 56px;
+  padding: 16px;
+  position: relative;
 }
 
 #demo-modal .demo-modal-close-container:last-of-type {
-  border-top: 1px solid #DEE2E6;
   border-bottom: none;
+  border-top: 1px solid var(--color-DEE2);
 }
 
 #demo-modal .demo-modal__close {
-  color: #7A7A7A;
-  cursor: pointer;
-  padding: 0;
   background-color: transparent;
   border: none;
+  color: var(--color-7A7A);
+  cursor: pointer;
   line-height: 0;
+  padding: 0;
 }
 
 #demo-modal .demo-modal__close-icon {
@@ -61,9 +61,10 @@ body.logged-in.admin-bar #demo-modal.demo-modal-overlay {
 }
 
 #demo-modal .demo-modal__close.demo-modal__text {
-  font-size: 14px;
-  line-height: 24px;
+  font-family: var(--f-family-var);
+  font-size: var(--px-14);
   font-weight: 400;
+  line-height: var(--px-24);
 }
 
 #demo-modal #form-container {
@@ -72,11 +73,11 @@ body.logged-in.admin-bar #demo-modal.demo-modal-overlay {
 
 @media(min-width: 768px) {
   #demo-modal.demo-modal-overlay {
+    height: calc(100dvh - 86px);
     padding: 30px 10px;
     top: 86px;
-    height: calc(100dvh - 86px);
   }
-
+  
   #demo-modal .demo-modal__content {
     max-width: 500px;
   }
@@ -84,12 +85,12 @@ body.logged-in.admin-bar #demo-modal.demo-modal-overlay {
 
 @media(min-width: 768px) {
   #demo-modal.demo-modal-overlay {
-    top: 0;
     height: 100dvh;
+    top: 0;
   }
-
+  
   body.logged-in.admin-bar #demo-modal.demo-modal-overlay {
-    top: 32px;
     height: calc(100dvh - 32px);
+    top: 32px;
   }
 }

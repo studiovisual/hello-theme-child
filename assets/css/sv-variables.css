@@ -3,7 +3,7 @@
   --color-0000: #000000;
   --color-FFFF: #FFFFFF;
   --color-EEF3: #EEF3FF;
-  --color-7A7A: #7A7A7A80;
+  --color-7A7A: #7A7A7A;
   --color-3037: #30373D;
   --color-0C0D: #0C0D0D;
   --color-E31B: #E31B23;
@@ -12,9 +12,12 @@
   --color-1C21: #1C2122;
   --color-2A59: #2A59DD;
   --color-E4EC: #E4ECFF;
-
+  --color-1E23: #1E2325;
+  --color-6EC1: #6EC1E478;
+  --color-DEE2: #DEE2E6;
   --color-box-shadow: rgba(0, 0, 0, 0.15);
   --color-overlay-dark: rgba(0, 0, 0, 0.8);
+  --color-border-color: #7A7A7A80;
   
   /* TRANSITION */
   --transition-duration: 0.3s;
@@ -22,7 +25,7 @@
   --transition-property: all;
 
   /* FONT: FAMILY */
-  --f-family-var: 'Montserrat', sans-serif;
+  --f-family-var: 'Heebo', sans-serif;
 
   /* PX TO REM */
   --px-base: 16;
@@ -32,6 +35,7 @@
   --px-12: calc(12 / var(--px-base) * var(--px-to-rem));
   --px-14: calc(14 / var(--px-base) * var(--px-to-rem));
   --px-16: calc(16 / var(--px-base) * var(--px-to-rem));
+  --px-18: calc(16 / var(--px-base) * var(--px-to-rem));
   --px-20: calc(20 / var(--px-base) * var(--px-to-rem));
 
   /* PX TO REM: 22-30 */
