@@ -42,15 +42,6 @@ function hello_elementor_child_scripts_styles() {
 			true
 	);
 
-	// // Enfileira o CSS do modal
-	// wp_enqueue_style(
-	// 		'demo-modal',
-	// 		get_stylesheet_directory_uri() . '/assets/css/partials/demo-modal.css',
-	// 		array(),
-	// 		HELLO_ELEMENTOR_CHILD_VERSION,
-	// 		'all'
-	// );
-	
 	// Enfileira o JS do modal
 	wp_enqueue_script(
 			'demo-modal',
