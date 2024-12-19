@@ -36,7 +36,7 @@ function hello_elementor_child_scripts_styles() {
 	// Enfileira o script do tema
 	wp_enqueue_script(
 			'custom-script',
-			get_stylesheet_directory_uri() . '/assets/js/sv-custom.js',
+			get_stylesheet_directory_uri() . '/assets/js/sv-header.js',
 			array(),
 			HELLO_ELEMENTOR_CHILD_VERSION,
 			true
