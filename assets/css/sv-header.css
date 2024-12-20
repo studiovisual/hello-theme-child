@@ -379,7 +379,7 @@ body.body--with-checkbox-checked {
   
   #sv-header .sv-header__navigation .menu-item::before {
     background-color: var(--color-E31B);
-    bottom: -32px;
+    bottom: -29px;
     content: '';
     height: 3px;
     left: 0;
@@ -409,7 +409,7 @@ body.body--with-checkbox-checked {
     opacity: 0;
     padding: 24px 32px;
     position: absolute;
-    top: calc(100% + 32px);
+    top: calc(100% + 29px);
     transition: var(--transition-property) var(--transition-duration) var(--transition-timing-function);
     visibility: hidden;
     width: max-content;
@@ -419,7 +419,7 @@ body.body--with-checkbox-checked {
   #sv-header .sv-header__navigation .sub-menu:before {
     bottom: 100%;
     content: "";
-    height: 32px;
+    height: 29px;
     left: 0;
     position: absolute;
     width: 100%;

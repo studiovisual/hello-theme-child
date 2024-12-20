@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-define( 'HELLO_ELEMENTOR_CHILD_VERSION', '2.0.0' );
+define( 'HELLO_ELEMENTOR_CHILD_VERSION', '3.0.0' );
 
 /**
  * Load child theme scripts & styles.
@@ -23,38 +23,65 @@ define( 'HELLO_ELEMENTOR_CHILD_VERSION', '2.0.0' );
  */
 // Função para enfileirar estilos e scripts do tema e do modal
 function hello_elementor_child_scripts_styles() {
-	// Enfileira o estilo do tema
+	// Enfileira o estilo principal do tema filho
 	wp_enqueue_style(
 			'hello-elementor-child-style',
 			get_stylesheet_directory_uri() . '/style.css',
-			[
-					'hello-elementor-theme-style',
-			],
+			['hello-elementor-theme-style'],
 			HELLO_ELEMENTOR_CHILD_VERSION
 	);
 
-	// Enfileira o script do tema
+	// Enfileira o CSS do cabeçalho
+	wp_enqueue_style(
+			'sv-header-style',
+			get_stylesheet_directory_uri() . '/assets/css/sv-header.css',
+			[],
+			HELLO_ELEMENTOR_CHILD_VERSION
+	);
+
+	// Enfileira o CSS do rodapé
+	wp_enqueue_style(
+			'sv-footer-style',
+			get_stylesheet_directory_uri() . '/assets/css/sv-footer.css',
+			[],
+			HELLO_ELEMENTOR_CHILD_VERSION
+	);
+
+	// Enfileira o CSS de variáveis
+	wp_enqueue_style(
+			'sv-variables-style',
+			get_stylesheet_directory_uri() . '/assets/css/sv-variables.css',
+			[],
+			HELLO_ELEMENTOR_CHILD_VERSION
+	);
+
+	// Enfileira o CSS do modal
+	wp_enqueue_style(
+			'demo-modal-style',
+			get_stylesheet_directory_uri() . '/assets/css/partials/demo-modal.css',
+			[],
+			HELLO_ELEMENTOR_CHILD_VERSION
+	);
+
+	// Enfileira os scripts JavaScript
 	wp_enqueue_script(
-			'custom-script',
+			'sv-header-script',
 			get_stylesheet_directory_uri() . '/assets/js/sv-header.js',
-			array(),
+			[],
 			HELLO_ELEMENTOR_CHILD_VERSION,
 			true
 	);
 
-	// Enfileira o JS do modal
 	wp_enqueue_script(
-			'demo-modal',
+			'demo-modal-script',
 			get_stylesheet_directory_uri() . '/assets/js/partials/demo-modal.js',
-			array(),
+			[],
 			HELLO_ELEMENTOR_CHILD_VERSION,
 			true
 	);
 }
 
-// Hook para adicionar os estilos e scripts ao front-end
 add_action('wp_enqueue_scripts', 'hello_elementor_child_scripts_styles', 20);
-
 
 /**
  * Registra os menus de navegação
@@ -95,7 +122,7 @@ class Custom_Submenu_Walker extends Walker_Nav_Menu {
 			$output .= '<li class="menu-item menu-item-btn">';
 			$output .= '<div class="sv-header__back-menu-container">';
 			$output .= '<button id="sv-header__back-menu" class="sv-header__back-button" aria-label="Voltar ao Menu Principal">';
-			$output .= '<img src="' . esc_url( get_stylesheet_directory_uri() ) . '/assets/icons/arrow-back-menu.svg" alt="Voltar" width="18" height="18">';
+			$output .= '<img src="' . esc_url( get_stylesheet_directory_uri() ) . '/assets/icons/arrow-back-menu.svg" alt="" width="18" height="18">';
 			$output .= '<span>Voltar</span>';
 			$output .= '</button>';
 			$output .= '</div>';
@@ -155,11 +182,7 @@ function add_menu_description_to_items($items, $args) {
 add_filter('wp_nav_menu_objects', 'add_menu_description_to_items', 10, 2);
 
 /**
- * Adiciona um campo de URL de imagem aos itens de menu selecionados.
- *
- * Esta função exibe um field no painel de administração para itens de menu específicos,
- * permitindo que o usuário insira uma URL de imagem que será associada ao item de menu.
- * O campo só é exibido para os itens de menu com IDs específicos definidos na variável `$allowed_ids`.
+ * Adiciona um campo de URL de imagem aos itens de menu.
  *
  * @param int $item_id O ID do item de menu.
  * @param WP_Post $item Dados do item de menu.
@@ -167,37 +190,28 @@ add_filter('wp_nav_menu_objects', 'add_menu_description_to_items', 10, 2);
  * @param object $args Argumentos do menu.
  */
 function add_custom_menu_image_field($item_id, $item, $depth, $args) {
-	// IDs dos itens de menu que devem ter o campo de imagem
-	$allowed_ids = array(82755, 82763, 82764, 82761, 82757, 82762, 82759, 82758, 82760);
+	$image_url = get_post_meta($item_id, '_menu_item_image_url', true);
 
-	// Verifica se o item de menu está na lista de IDs permitidos
-	if (in_array($item_id, $allowed_ids)) {
-			$image_url = get_post_meta($item_id, '_menu_item_image_url', true);
-
-			?>
-			<p class="field-menu-item-image-url description description-wide">
-					<label for="edit-menu-item-image-url-<?php echo $item_id; ?>">
-							<?php _e('Image URL'); ?><br>
-							<input type="text" id="edit-menu-item-image-url-<?php echo $item_id; ?>" class="widefat code edit-menu-item-image-url" name="menu-item-image-url[<?php echo $item_id; ?>]" value="<?php echo esc_attr($image_url); ?>" />
-							<br />
-							<small><?php _e('Insira o URL da imagem que deseja usar para este item de menu.'); ?></small>
-					</label>
-			</p>
-			<?php
-	}
+	?>
+	<p class="field-menu-item-image-url description description-wide">
+			<label for="edit-menu-item-image-url-<?php echo $item_id; ?>">
+					<?php _e('Image URL'); ?><br>
+					<input type="text" id="edit-menu-item-image-url-<?php echo $item_id; ?>" class="widefat code edit-menu-item-image-url" name="menu-item-image-url[<?php echo $item_id; ?>]" value="<?php echo esc_attr($image_url); ?>" />
+					<br />
+					<small><?php _e('Insira o URL da imagem que deseja usar para este item de menu.'); ?></small>
+			</label>
+	</p>
+	<?php
 }
 add_filter('wp_nav_menu_item_custom_fields', 'add_custom_menu_image_field', 10, 4);
 
 /**
- * Salva o URL da imagem inserido nos itens de menu.
- *
- * Quando um usuário insere ou edita o URL de uma imagem no campo personalizado do menu,
- * essa função armazena o valor no banco de dados, associando-o ao item de menu correspondente.
- *
- * @param int $menu_id O ID do menu.
- * @param int $menu_item_db_id O ID do item de menu no banco de dados.
- * @param object $args Argumentos adicionais para a atualização.
- */
+* Salva o URL da imagem inserido nos itens de menu.
+*
+* @param int $menu_id O ID do menu.
+* @param int $menu_item_db_id O ID do item de menu no banco de dados.
+* @param object $args Argumentos adicionais para a atualização.
+*/
 function save_custom_menu_image_field($menu_id, $menu_item_db_id, $args) {
 	if (isset($_POST['menu-item-image-url'][$menu_item_db_id])) {
 			$image_url = sanitize_text_field($_POST['menu-item-image-url'][$menu_item_db_id]);
@@ -207,17 +221,14 @@ function save_custom_menu_image_field($menu_id, $menu_item_db_id, $args) {
 add_action('wp_update_nav_menu_item', 'save_custom_menu_image_field', 10, 3);
 
 /**
- * Adiciona uma imagem ao item de menu, se houver um URL de imagem.
- *
- * Esta função verifica se um item de menu possui um URL de imagem associado
- * e, caso exista, adiciona a imagem ao lado do título do item no menu.
- *
- * @param string $item_output O HTML de saída do item de menu.
- * @param object $item Dados do item de menu.
- * @param object $args Argumentos do menu.
- * @param int $depth Nível de profundidade do menu.
- * @return string O HTML do item de menu, com a imagem adicionada, se aplicável.
- */
+* Adiciona uma imagem ao item de menu, se houver um URL de imagem.
+*
+* @param string $item_output O HTML de saída do item de menu.
+* @param object $item Dados do item de menu.
+* @param object $args Argumentos do menu.
+* @param int $depth Nível de profundidade do menu.
+* @return string O HTML do item de menu, com a imagem adicionada, se aplicável.
+*/
 function add_image_to_nav_menu($item_output, $item, $args, $depth) {
 	$image_url = get_post_meta($item->ID, '_menu_item_image_url', true);
 
