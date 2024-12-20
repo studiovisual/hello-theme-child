@@ -168,7 +168,7 @@ add_filter('wp_nav_menu_objects', 'add_menu_description_to_items', 10, 2);
  */
 function add_custom_menu_image_field($item_id, $item, $depth, $args) {
 	// IDs dos itens de menu que devem ter o campo de imagem
-	$allowed_ids = array(62, 259, 260);
+	$allowed_ids = array(82755, 82763, 82764, 82761, 82757, 82762, 82759, 82758, 82760);
 
 	// Verifica se o item de menu está na lista de IDs permitidos
 	if (in_array($item_id, $allowed_ids)) {
