@@ -21,12 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		const resetSubmenu = () => {
 			subMenus.forEach(submenu => submenu.classList.remove('submenu-container--show'));
-
-			  // Garantir que o modal seja fechado removendo a classe 'demo-modal--show'
-				popup.classList.remove('demo-modal--show');
-				
-				// Remover o overflow do body
-				document.body.classList.remove('overflow-hidden');
 		};
 
 		backButton.forEach(button => {

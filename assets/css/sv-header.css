@@ -274,7 +274,17 @@ body.body--with-checkbox-checked {
   }
 }
 
+@media(min-width: 768px) {
+  #sv-header {
+    max-height: 72px;
+  }
+}
+
 @media(min-width: 1025px) {
+  #sv-header {
+    max-height: 84px;
+  }
+
   #sv-header .d-none-desktop {
     display: none !important;
   }
@@ -288,7 +298,7 @@ body.body--with-checkbox-checked {
 
     flex-direction: row;
     gap: 24px;
-    padding: 21px 0;
+    padding: 20px 0;
   }
   
   #sv-header .sv-header__navigation {
@@ -362,6 +372,7 @@ body.body--with-checkbox-checked {
   
   #sv-header .sv-header__navigation .menu-item a {
     font-size: var(--px-16);
+    line-height: var(--px-26);
     padding: 0 16px;
     transition: var(--transition-property) var(--transition-duration) var(--transition-timing-function);
   }
