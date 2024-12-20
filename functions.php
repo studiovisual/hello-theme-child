@@ -244,7 +244,8 @@ function add_image_to_nav_menu($item_output, $item, $args, $depth) {
 	$image_url = get_post_meta($item->ID, '_menu_item_image_url', true);
 
 	if (!empty($image_url)) {
-			$item_output = '<a href="' . esc_url($item->url) . '"><img src="' . esc_url($image_url) . '" alt="" class="menu-item-image" /> ' . $item->title . '</a>';
+		$image_size = getimagesize($image_url);
+		$item_output = '<a href="' . esc_url($item->url) . '"><img src="' . esc_url($image_url) . '" alt="" class="menu-item-image" width="' . $image_size[0] . '" height="' . $image_size[1] . '" /> ' . $item->title . '</a>';		
 	}
 
 	return $item_output;
