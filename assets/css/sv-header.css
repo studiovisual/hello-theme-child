@@ -473,11 +473,22 @@ body.body--with-checkbox-checked {
     width: 50%;
   }
 
+  #sv-header .menu-mega--produtos .menu-level-2 .subitem-stratws-one {
+    padding: 16px;
+    border-radius: 8px;
+    transition: var(--transition-property) var(--transition-duration) var(--transition-timing-function);
+  }
+
+  #sv-header .menu-mega--produtos .menu-level-2 .subitem-stratws-one:hover {
+    background-color: var(--color-6EC1);
+  }
+
   #sv-header .menu-mega--produtos .menu-level-2 .subitem-stratws-one a {
+    background-color: transparent;
     font-size: var(--px-24);
     gap: 20px;
     line-height: var(--px-30);
-    padding: 16px;
+    padding: 0;
   }
   
   #sv-header .menu-mega--produtos .menu-level-2 .subitem-stratws-one .menu-item-description {
