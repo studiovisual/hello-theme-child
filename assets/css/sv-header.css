@@ -499,6 +499,7 @@ body.body--with-checkbox-checked {
     margin-top: -10px;
   }
   
+  #sv-header .menu-mega--produtos .menu-level-2 .subitem-stratws-one picture,
   #sv-header .menu-mega--produtos .menu-level-2 .subitem-stratws-one img {
     display: flex;
     order: 3;
