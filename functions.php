@@ -40,7 +40,7 @@ add_action( 'wp_enqueue_scripts', 'hello_elementor_child_scripts_styles', 20 );
  */
 add_action('template_redirect', function() {
     if (is_author()) {
-        wp_redirect(home_url()); // Redireciona para a página inicial
+        wp_redirect(home_url(), 301); // Redireciona para a página inicial
         exit;
     }
 });
