@@ -15,12 +15,18 @@ $stylesheet_dir_uri = esc_url(get_stylesheet_directory_uri());
 ?>
 
 <footer id="sv-footer" class="sv-footer">
-	<div class="sv-footer__sessao-principal">
-		<div class="sv-footer__coluna">
-			<img src="<?php echo $stylesheet_dir_uri; ?>/assets/icons/logo-studio-footer.svg" alt="Site Logo">
-			<p><?php echo esc_html(get_bloginfo('description', 'display')); ?></p>
+	<div class="sv-footer__container">
+		<div class="sv-footer__content">
+			<a class="sv-footer__logo-link" href="<?php echo home_url(); ?>">
+				<img
+					src="<?php echo $stylesheet_dir_uri; ?>/assets/icons/logo-studio-footer.svg"
+					alt="Logo Studio Visual"
+					class="sv-footer__logo"
+				/>
+			</a>
+			<p class="sv-footer__description"><?php echo esc_html(get_bloginfo('description', 'display')); ?></p>
 
-			<div class="sv-footer__icones-sociais">
+			<div class="sv-footer__social_icons">
 				<?php
 					$social_icons = [
 						'facebook' => 'https://www.facebook.com/StudioVisualBR',
@@ -46,14 +52,14 @@ $stylesheet_dir_uri = esc_url(get_stylesheet_directory_uri());
 		</div>
 
 		<?php if (has_nav_menu('primary-footer-menu')): ?>
-			<nav aria-labelledby="footer-menu">
+			<nav class="sv-footer__menu" aria-labelledby="footer-menu">
 				<?php
 				$menu_items = wp_get_nav_menu_items(get_nav_menu_locations()['primary-footer-menu']);
 				if ($menu_items):
 					foreach ($menu_items as $item):
 						if ($item->menu_item_parent == 0): ?>
-							<div class="sv-footer__coluna">
-								<details class="sv-footer__item-acordeao" open>
+							<div class="sv-footer__menu-item">
+								<details class="sv-footer__accordion-item" open>
 									<summary>
 										<a href="<?php echo esc_url($item->url); ?>">
 											<?php echo esc_html($item->title); ?>
