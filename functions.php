@@ -14,35 +14,58 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-define( 'HELLO_ELEMENTOR_CHILD_VERSION', '2.0.0' );
+define( 'HELLO_ELEMENTOR_CHILD_VERSION', '2.0.1' );
 
 /**
  * Load child theme scripts & styles.
  *
  * @return void
  */
+// Função para enfileirar estilos e scripts do tema e do modal
 function hello_elementor_child_scripts_styles() {
-
+	// Enfileira o estilo principal do tema filho
 	wp_enqueue_style(
-		'hello-elementor-child-style',
-		get_stylesheet_directory_uri() . '/style.css',
-		[
-			'hello-elementor-theme-style',
-		],
-		HELLO_ELEMENTOR_CHILD_VERSION
-	);
-}
-add_action( 'wp_enqueue_scripts', 'hello_elementor_child_scripts_styles', 20 );
-
-function enqueue_svcustom_scripts() {
-	wp_enqueue_script(
-			'custom-script',
-			get_stylesheet_directory_uri() . '/assets/js/sv-custom.js',
-			array(),
+			'hello-elementor-child-style',
+			get_stylesheet_directory_uri() . '/style.css',
+			['hello-elementor-theme-style'],
 			HELLO_ELEMENTOR_CHILD_VERSION
 	);
+
+	// Enfileira o CSS do cabeçalho
+	wp_enqueue_style(
+			'sv-header-style',
+			get_stylesheet_directory_uri() . '/assets/css/sv-header.css',
+			[],
+			HELLO_ELEMENTOR_CHILD_VERSION
+	);
+
+	// Enfileira o CSS do rodapé
+	wp_enqueue_style(
+			'sv-footer-style',
+			get_stylesheet_directory_uri() . '/assets/css/sv-footer.css',
+			[],
+			HELLO_ELEMENTOR_CHILD_VERSION
+	);
+
+	// Enfileira o CSS de variáveis
+	wp_enqueue_style(
+			'sv-variables-style',
+			get_stylesheet_directory_uri() . '/assets/css/sv-variables.css',
+			[],
+			HELLO_ELEMENTOR_CHILD_VERSION
+	);
+
+	// Enfileira os scripts JavaScript
+	wp_enqueue_script(
+			'sv-header-script',
+			get_stylesheet_directory_uri() . '/assets/js/sv-header.js',
+			[],
+			HELLO_ELEMENTOR_CHILD_VERSION,
+			true
+	);
 }
-add_action('wp_enqueue_scripts', 'enqueue_svcustom_scripts');
+
+add_action('wp_enqueue_scripts', 'hello_elementor_child_scripts_styles', 20);
 
 /**
  * Registra os menus de navegação
@@ -141,16 +164,3 @@ function add_menu_description_to_items($items, $args) {
 	return $items;
 }
 add_filter('wp_nav_menu_objects', 'add_menu_description_to_items', 10, 2);
-
-function hello_elementor_child_enqueue_styles() {
-    // 
-    wp_enqueue_style('hello-elementor', get_template_directory_uri() . '/style.css');
-    
-    // styles footer
-    wp_enqueue_style('sv-footer', get_stylesheet_directory_uri() . '/assets/css/sv-footer.css', array(), null);
-    
-	add_action('wp_enqueue_scripts', 'hello_elementor_child_enqueue_styles', 20);
-
-}
-
-add_action('wp_enqueue_scripts', 'hello_elementor_child_enqueue_styles');
