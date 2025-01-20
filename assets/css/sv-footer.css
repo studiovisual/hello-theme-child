@@ -4,7 +4,7 @@
     margin: 0 -16px;
     padding: 35px 16px;
     font-family: var(--f-family-sweet-sans);
-    background-color: var(--color-0207);
+    background-color: var(--color-primary-900);
 }
 
 #sv-footer ul {
@@ -34,7 +34,7 @@
 }
 
 #sv-footer .sv-footer__description {
-    color: var(--color-FFFF);
+    color: var(--color-white);
     font-size: var(--px-20);
     font-weight: 900;
     line-height: var(--px-28);
@@ -69,7 +69,7 @@
 }
 
 #sv-footer .sv-footer__menu-list .menu-item a {
-    color: var(--color-FFFF);
+    color: var(--color-white);
     font-size: var(--px-16);
     font-weight: 700;
     line-height: var(--px-24);
@@ -80,7 +80,7 @@
 }
 
 #sv-footer .sv-footer__menu-list .sub-menu .menu-item a { 
-	color: var(--color-BDCA);
+	color: var(--color-primary-300);
     font-family: var(--f-family-cairo);
     font-size: var(--px-16);
     font-weight: 600;
@@ -92,7 +92,7 @@
 }
 
 #sv-footer .sv-footer__menu-list .sub-menu .menu-item a:hover { 
-	color: var(--color-FFFF);
+	color: var(--color-white);
 } 
 
 /* Mobile */
