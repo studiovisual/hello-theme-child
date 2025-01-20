@@ -24,7 +24,8 @@ $stylesheet_dir_uri = esc_url(get_stylesheet_directory_uri());
 					class="sv-footer__logo"
 				/>
 			</a>
-			<p class="sv-footer__description"><?php echo esc_html(get_bloginfo('description', 'display')); ?></p>
+			
+			<p class="sv-footer__description">Ultrapasse as metas do seu projeto digital com a Studio Visual.</p>
 
 			<div class="sv-footer__social_icons">
 				<?php
@@ -51,40 +52,17 @@ $stylesheet_dir_uri = esc_url(get_stylesheet_directory_uri());
 			</div>
 		</div>
 
-		<?php if (has_nav_menu('primary-footer-menu')): ?>
-			<nav class="sv-footer__menu" aria-labelledby="footer-menu">
-				<?php
-				$menu_items = wp_get_nav_menu_items(get_nav_menu_locations()['primary-footer-menu']);
-				if ($menu_items):
-					foreach ($menu_items as $item):
-						if ($item->menu_item_parent == 0): ?>
-							<div class="sv-footer__menu-item">
-								<details class="sv-footer__accordion-item" open>
-									<summary>
-										<a href="<?php echo esc_url($item->url); ?>">
-											<?php echo esc_html($item->title); ?>
-										</a>
-									</summary>
-									<?php
-									// Display sub-items
-									$sub_items = array_filter($menu_items, fn($sub_item) => $sub_item->menu_item_parent == $item->ID);
-									if ($sub_items): ?>
-										<ul>
-											<?php foreach ($sub_items as $sub_item): ?>
-												<li><a href="<?php echo esc_url($sub_item->url); ?>"><?php echo esc_html($sub_item->title); ?></a></li>
-											<?php endforeach; ?>
-										</ul>
-									<?php endif; ?>
-								</details>
-							</div>
-						<?php endif;
-					endforeach;
-					else: ?>
-						<p>Erro ao carregar os itens do menu de rodapé.</p>
-				<?php endif; ?>
-			</nav>
-		<?php else: ?>
-			<p>Menu de rodapé não configurado.</p>
-		<?php endif; ?>
+		<nav class="sv-footer__menu">
+			<?php
+				if (has_nav_menu('primary-footer-menu')) {
+					wp_nav_menu(array(
+						'theme_location' => 'primary-footer-menu',
+						'container'      => false,
+						'menu_class'     => 'sv-footer__menu-list',
+						'depth'          => 2,
+					));
+				}
+			?>
+		</nav>
 	</div>
 </footer>
