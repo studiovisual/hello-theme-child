@@ -118,7 +118,7 @@ class Custom_Submenu_Walker extends Walker_Nav_Menu {
 			// Adiciona o título do submenu, se estiver definido.
 			if ( ! empty( $this->current_item_title ) ) {
 				$output .= '<li class="menu-item menu-item-title">';
-				$output .= '<a href="' . esc_url( $this->current_item_link ) . '">';
+				$output .= '<a href="' . esc_url( $this->current_item_link ) . '" title="' . esc_attr( $this->current_item_title ) . '">';
 				$output .= esc_html( $this->current_item_title );
 				$output .= '</a>';
 				$output .= '</li>';
