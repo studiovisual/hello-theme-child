@@ -72,15 +72,14 @@ add_action('wp_enqueue_scripts', 'hello_elementor_child_scripts_styles', 20);
  *
  * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
  */
-add_filter( 'hello_elementor_register_menus', function( $register_menus ) {
-    if ( $register_menus ) {
-        register_nav_menus( [
-            'primary-header-menu' => esc_html__( 'Header', 'hello-elementor' ),
-            'primary-footer-menu' => esc_html__( 'Footer', 'hello-elementor' ),
-        ] );
-    }
-    return false;
-}, 20 );
+
+ add_filter( 'hello_elementor_register_menus', '__return_false' );
+
+ register_nav_menus( [
+		 'primary-header-menu' => esc_html__( 'Header Menu', 'textdomain' ),
+		 'primary-footer-menu' => esc_html__( 'Footer Menu', 'textdomain' ),
+ ] );
+ 
 
 /**
  * Classe personalizada para gerenciar submenus com título e botão "Voltar".
@@ -90,6 +89,11 @@ class Custom_Submenu_Walker extends Walker_Nav_Menu {
 	 * @var string $current_item_title Armazena o título do item atual no nível de profundidade 0.
 	 */
 	private $current_item_title = '';
+
+		/**
+	 * @var string $current_item_link Armazena o link do item atual no nível de profundidade 0.
+	 */
+	 private $current_item_link = '';
 
 	/**
 	 * Inicia o nível do submenu.
@@ -106,7 +110,6 @@ class Custom_Submenu_Walker extends Walker_Nav_Menu {
 			$output .= '<li class="menu-item menu-item-btn">';
 			$output .= '<div class="sv-header__back-menu-container">';
 			$output .= '<button id="sv-header__back-menu" class="sv-header__back-button" aria-label="Voltar ao Menu Principal">';
-			$output .= '<img src="' . esc_url( get_stylesheet_directory_uri() ) . '/assets/icons/arrow-back-menu.svg" alt="Voltar" width="18" height="18">';
 			$output .= '<span>Voltar</span>';
 			$output .= '</button>';
 			$output .= '</div>';
@@ -115,7 +118,9 @@ class Custom_Submenu_Walker extends Walker_Nav_Menu {
 			// Adiciona o título do submenu, se estiver definido.
 			if ( ! empty( $this->current_item_title ) ) {
 				$output .= '<li class="menu-item menu-item-title">';
-				$output .= '<span>' . esc_html( $this->current_item_title ) . '</span>';
+				$output .= '<a href="' . esc_url( $this->current_item_link ) . '">';
+				$output .= esc_html( $this->current_item_title );
+				$output .= '</a>';
 				$output .= '</li>';
 			}
 		} else {
@@ -137,6 +142,7 @@ class Custom_Submenu_Walker extends Walker_Nav_Menu {
 		if ( $depth === 0 ) {
 			// Armazena o título do item para ser usado no submenu, apenas no nível 0.
 			$this->current_item_title = $item->title;
+			$this->current_item_link  = $item->url;
 		}
 
 		// Usa o método padrão do Walker_Nav_Menu para a estrutura do item.
