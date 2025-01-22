@@ -89,16 +89,13 @@ add_action('wp_enqueue_scripts', 'hello_elementor_child_scripts_styles', 20);
  *
  * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
  */
-add_filter( 'hello_elementor_register_menus', function( $register_menus ) {
-    if ( $register_menus ) {
-        register_nav_menus( [
-            'primary-header-menu' => esc_html__( 'Header', 'hello-elementor' ),
-            'primary-footer-menu' => esc_html__( 'Footer', 'hello-elementor' ),
-        ] );
-    }
-    return false;
-}, 20 );
 
+ add_filter( 'hello_elementor_register_menus', '__return_false' );
+
+ register_nav_menus( [
+		 'primary-header-menu' => esc_html__( 'Header Menu', 'textdomain' ),
+		 'primary-footer-menu' => esc_html__( 'Footer Menu', 'textdomain' ),
+ ] );
 
 /**
  * Adiciona o script de integração do formulário HubSpot ao cabeçalho do site.
