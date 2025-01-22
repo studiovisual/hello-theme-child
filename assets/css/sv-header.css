@@ -260,6 +260,12 @@ body.body--with-checkbox-checked {
   display: block;
 }
 
+body.logged-in.admin-bar #sv-header .sv-header__navigation,
+body.logged-in.admin-bar #sv-header .sub-menu {
+  height: calc(100dvh - 119px);
+  top: 119px;
+}
+
 @media(max-width: 1024px) {
   #sv-header .sub-menu {
     background-color: var(--color-FFFF);
