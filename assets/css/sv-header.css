@@ -104,12 +104,12 @@ body.body--with-checkbox-checked {
 #sv-header .sv-header__navigation {
   background-color: var(--color-FFFF);
   color: var(--color-FFFF);
-  height: calc(100dvh - 72px);
+  height: calc(100dvh - 71px);
   left: 0;
   opacity: 0;
   pointer-events: none;
   position: fixed;
-  top: 72px;
+  top: 71px;
   transition: var(--transition-property) var(--transition-duration) var(--transition-timing-function);
   width: 100%;
   z-index: 100;
@@ -269,12 +269,12 @@ body.logged-in.admin-bar #sv-header .sub-menu {
 @media(max-width: 1024px) {
   #sv-header .sub-menu {
     background-color: var(--color-FFFF);
-    height: calc(100dvh - 73px);
+    height: calc(100dvh - 71px);
     left: 100%;
     overflow: auto;
     padding: 0;
     position: fixed;
-    top: 73px;
+    top: 71px;
     transition: var(--transition-property) var(--transition-duration) var(--transition-timing-function);
     width: 100%;
     z-index: 200;
