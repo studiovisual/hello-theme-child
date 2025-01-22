@@ -15,6 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'HELLO_ELEMENTOR_CHILD_VERSION', '3.1.0' );
+define( 'MENU_ITEM_IMAGE_URL_META_KEY', '_menu_item_image_url' );
 
 /**
  * Load child theme scripts & styles.
@@ -98,6 +99,15 @@ add_filter( 'hello_elementor_register_menus', function( $register_menus ) {
     return false;
 }, 20 );
 
+
+/**
+ * Adiciona o script de integração do formulário HubSpot ao cabeçalho do site.
+ */
+function add_script_head () {
+	echo '<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>';
+}
+add_action('wp_head', 'add_script_head', 5);
+
 /**
  * Classe personalizada para gerenciar submenus com título e botão "Voltar".
  */
@@ -122,7 +132,6 @@ class Custom_Submenu_Walker extends Walker_Nav_Menu {
 			$output .= '<li class="menu-item menu-item-btn">';
 			$output .= '<div class="sv-header__back-menu-container">';
 			$output .= '<button id="sv-header__back-menu" class="sv-header__back-button" aria-label="Voltar ao Menu Principal">';
-			$output .= '<img src="' . esc_url( get_stylesheet_directory_uri() ) . '/assets/icons/arrow-back-menu.svg" alt="" width="18" height="18">';
 			$output .= '<span>Voltar</span>';
 			$output .= '</button>';
 			$output .= '</div>';
@@ -190,7 +199,11 @@ add_filter('wp_nav_menu_objects', 'add_menu_description_to_items', 10, 2);
  * @param object $args Argumentos do menu.
  */
 function add_custom_menu_image_field( $item_id, $item, $depth, $args ) {
-	$image_url = get_post_meta( $item_id, '_menu_item_image_url', true );
+	$image_url = get_post_meta( $item_id, MENU_ITEM_IMAGE_URL_META_KEY, true );
+
+	if ( empty( $image_url ) ) {
+		$image_url = '';
+	}
 	?>
 
 	<p class="field-menu-item-image-url description description-wide">
@@ -225,7 +238,7 @@ add_filter( 'wp_nav_menu_item_custom_fields', 'add_custom_menu_image_field', 10,
 function save_custom_menu_image_field( $menu_id, $menu_item_db_id, $args ) {
 	if ( isset( $_POST['menu-item-image-url'][ $menu_item_db_id ] ) ) {
 			$image_url = esc_url_raw( $_POST['menu-item-image-url'][ $menu_item_db_id ] );
-			update_post_meta( $menu_item_db_id, '_menu_item_image_url', $image_url );
+			update_post_meta( $menu_item_db_id, MENU_ITEM_IMAGE_URL_META_KEY, $image_url );
 	}
 }
 add_action( 'wp_update_nav_menu_item', 'save_custom_menu_image_field', 10, 3 );
@@ -241,10 +254,14 @@ add_action( 'wp_update_nav_menu_item', 'save_custom_menu_image_field', 10, 3 );
 * @return string O HTML do item de menu, com a imagem adicionada, se aplicável.
 */
 function add_image_to_nav_menu($item_output, $item, $args, $depth) {
-	$image_url = get_post_meta($item->ID, '_menu_item_image_url', true);
+	$image_url = get_post_meta($item->ID, MENU_ITEM_IMAGE_URL_META_KEY, true);
 
 	if (!empty($image_url)) {
-		$item_output = '<a href="' . esc_url($item->url) . '"><img src="' . esc_url($image_url) . '" alt="" class="menu-item-image" aria-hidden="true" width="315" height="200" /> ' . $item->title . '</a>';
+    $post_title = get_the_title($item->object_id);
+
+    $item_output = '<a href="' . esc_url($item->url) . '" title="' . esc_attr($post_title) . '">';
+    $item_output .= '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($post_title) . '" class="menu-item-image" aria-hidden="true" width="315" height="200" /> ';
+    $item_output .= $item->title . '</a>';
 	}
 
 	return $item_output;
@@ -266,8 +283,8 @@ function sv_render_menu_button($class = '') {
 		<a
 			href="#"
 			role="button"
-			class="<?php echo esc_attr($button_class); ?>" 
-			title="<?php echo esc_attr($text); ?>" 
+			class="<?php echo esc_attr($button_class); ?>"
+			title="<?php echo esc_attr($text); ?>"
 			aria-label="<?php echo esc_attr($text); ?>"
 			onclick="togglePopup();">
 			<?php echo esc_html($text); ?>

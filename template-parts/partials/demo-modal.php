@@ -22,7 +22,6 @@
         <div id="form-container">
             <?php if ($language_code === 'en') : ?>
                 <!-- Formulário em inglês -->
-                <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
                 <script>
                     hbspt.forms.create({
                         portalId: "5594807",
@@ -31,7 +30,6 @@
                 </script>
             <?php else : ?>
                 <!-- Formulário em português -->
-                <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
                 <script>
                     hbspt.forms.create({
                         portalId: "5594807",
