@@ -1,16 +1,12 @@
 :root {
   /* COLORS */
-  --color-black: #000000;
-  --color-white: #FFFFFF;
-  --color-primary-300: #BDCAE8;
-  --color-primary: #2942BC;
-  --color-primary-900: #02071A;
-  --color-primary-hover: #213596;
-  --color-gray-800: #333333;
+  --color-0000: #000000;
+  --color-FFFF: #FFFFFF;
+  --color-2727: #272727;
+  --color-FDBA: #FDBA14;
+  --color-C5C5: #C5C5C5;
   --color-box-shadow: rgba(0, 0, 0, 0.15);
   --color-overlay-dark: rgba(0, 0, 0, 0.8);
-  --color-border-color: #7A7A7A80;
-  --color-submenu-bg: #3B436582;
   
   /* TRANSITION */
   --transition-duration: 0.3s;
@@ -18,8 +14,7 @@
   --transition-property: all;
 
   /* FONT: FAMILY */
-  --f-family-sweet-sans: 'sweet-sans-pro', sans-serif;
-  --f-family-cairo: 'cairo', sans-serif;
+  --f-family-var: 'Montserrat', sans-serif;
 
   /* PX TO REM */
   --px-base: 16;
