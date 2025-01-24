@@ -19,27 +19,25 @@ $stylesheet_dir_uri = esc_url(get_stylesheet_directory_uri());
 		<div class="sv-footer__content">
 			<a class="sv-footer__logo-link" href="<?php echo home_url(); ?>" title="Ir para a página inicial">
 				<img
-					src="<?php echo $stylesheet_dir_uri; ?>/assets/icons/logo-studio-footer.svg"
+					src="<?php echo $stylesheet_dir_uri; ?>/assets/icons/logo-tracbel.svg"
 					alt="Logo Studio Visual"
 					class="sv-footer__logo"
 				/>
 			</a>
 
-
-			<p class="sv-footer__description">Ultrapasse as metas do seu projeto digital com a Studio Visual.</p>
-
 			<div class="sv-footer__social_icons">
 				<?php
 					$social_icons = [
-						'facebook' => 'https://www.facebook.com/StudioVisualBR',
-						'instagram' => 'https://www.instagram.com/studiovisualbr/',
-						'linkedin' => 'https://www.linkedin.com/company/studio-visual/'
+						'linkedin'  => 'https://www.linkedin.com/company/tracbel-s-a/',
+						'instagram' => 'https://www.instagram.com/grupotracbel/',
+						'facebook'  => 'https://www.facebook.com/GrupoTracbel',
+						'youtube'   => 'https://www.youtube.com/channel/UCGVXh77FF9AWORQEefO6ZDQ'
 					];
 				foreach ($social_icons as $platform => $link): ?>
 					<a
 						href="<?php echo esc_url($link); ?>"
 						aria-label="Visite nosso perfil no <?php echo ucfirst($platform); ?>"
-						title="<?php echo ucfirst($platform); ?> Studio Visual"
+						title="<?php echo ucfirst($platform); ?> Tracbel"
 						target="_blank"
 						rel="noreferrer noopener">
 						<img
@@ -65,5 +63,16 @@ $stylesheet_dir_uri = esc_url(get_stylesheet_directory_uri());
 				}
 			?>
 		</nav>
+
+		<div class="sv-footer__copyright">
+			Tracbel © <?php echo date('Y'); ?>. Todos os direitos reservados. | 
+			<a href="https://www.tracbel.com.br/politica-de-privacidade/" title="Leia nossa Política de Privacidade">
+					Política de Privacidade
+			</a> | 
+			Desenvolvido por: 
+			<a href="https://studiovisual.com.br/" target="_blank" title="Visite o site da Studio Visual" class="footer-link">
+					Studio Visual
+			</a>
+		</div>
 	</div>
 </footer>
