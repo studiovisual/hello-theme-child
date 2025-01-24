@@ -76,8 +76,8 @@ add_action('wp_enqueue_scripts', 'hello_elementor_child_scripts_styles', 20);
  add_filter( 'hello_elementor_register_menus', '__return_false' );
 
  register_nav_menus( [
-		 'primary-header-menu' => esc_html__( 'Header Menu', 'textdomain' ),
-		 'primary-footer-menu' => esc_html__( 'Footer Menu', 'textdomain' ),
+		 'primary-header-menu' => esc_html__( 'Header Menu', 'hello-elementor' ),
+		 'primary-footer-menu' => esc_html__( 'Footer Menu', 'hello-elementor' ),
  ] );
  
 
