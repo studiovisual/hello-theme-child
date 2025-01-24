@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-define( 'HELLO_ELEMENTOR_CHILD_VERSION', '2.0.1' );
+define( 'HELLO_ELEMENTOR_CHILD_VERSION', '2.0.0' );
 
 /**
  * Load child theme scripts & styles.
@@ -63,3 +63,23 @@ add_action('wp_enqueue_scripts', 'hello_elementor_child_scripts_styles', 20);
 		 'primary-footer-menu' => esc_html__( 'Footer Menu', 'textdomain' ),
  ] );
  
+/**
+ * Adiciona a descrição aos itens do menu, se disponível.
+ *
+ * @param array    $items Array de itens do menu.
+ * @param stdClass $args Configurações do menu.
+ * @return array Itens do menu modificados.
+ */
+function add_menu_description_to_items($items, $args) {
+	if (empty($items)) {
+		return $items;
+	}
+
+	foreach ($items as &$item) {
+		if (!empty($item->description)) {
+			$item->title .= ' <span class="menu-item-description">' . esc_html($item->description) . '</span>';
+		}
+	}
+	return $items;
+}
+add_filter('wp_nav_menu_objects', 'add_menu_description_to_items', 10, 2);
