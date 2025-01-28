@@ -11,7 +11,7 @@ if (!defined('ABSPATH')) {
 }
 
 if (!hello_get_header_display()) {
-    return;
+	return;
 }
 
 $stylesheet_dir_uri = esc_url(get_stylesheet_directory_uri());
@@ -21,8 +21,8 @@ $stylesheet_dir_uri = esc_url(get_stylesheet_directory_uri());
 	<div class="sv-header__container">
 		<input type="checkbox" id="sv-header__checkbox" class="sv-header__checkbox d-none-desktop">
 		<label for="sv-header__checkbox" class="sv-header__nav-controls d-none-desktop">
-			<img src="<?php echo $stylesheet_dir_uri; ?>/assets/icons/menu-open.svg" alt="Abrir Menu" class="sv-header__navOpen" width="24" height="24">
-			<img src="<?php echo $stylesheet_dir_uri; ?>/assets/icons/menu-close.svg" alt="Fechar Menu" class="sv-header__navClose" width="24" height="24">
+			<img src="<?php echo $stylesheet_dir_uri; ?>/assets/icons/menu-open.svg" alt="Abrir Menu" class="sv-header__navOpen" width="32" height="32">
+			<img src="<?php echo $stylesheet_dir_uri; ?>/assets/icons/menu-close.svg" alt="Fechar Menu" class="sv-header__navClose" width="32" height="32">
 		</label>
 
 		<div class="sv-header__logo">
@@ -35,8 +35,8 @@ $stylesheet_dir_uri = esc_url(get_stylesheet_directory_uri());
 			?>
 		</div>
 
-		<div class="sv-header__buttons d-none-mobile">
-			<a href="/contrate" class="sv-header__button sv-header__button--hire" title="Agendar demonstração gratuita">Agendar demonstração gratuita</a>
+		<div class="sv-header__buttons">
+			<a href="/fale-com-especialistas" class="sv-header__button sv-header__button--hire" title="Fale com Especialistas">Fale com Especialistas</a>
 		</div>
 
 		<nav id="sv-header__menu" class="sv-header__navigation">
@@ -51,8 +51,6 @@ $stylesheet_dir_uri = esc_url(get_stylesheet_directory_uri());
 					));
 				}
 			?>
-
-			<a href="/contrate" class="sv-header__button sv-header__button--hire d-none-desktop" title="Agendar demonstração gratuita">Agendar demonstração gratuita</a>
 		</nav>
 	</div>
 </header>
