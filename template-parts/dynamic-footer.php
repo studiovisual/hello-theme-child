@@ -31,7 +31,7 @@ $stylesheet_dir_uri = esc_url(get_stylesheet_directory_uri());
 						'linkedin'  => 'https://www.linkedin.com/company/tracbel-s-a/',
 						'instagram' => 'https://www.instagram.com/grupotracbel/',
 						'facebook'  => 'https://www.facebook.com/GrupoTracbel',
-						'youtube'   => 'https://www.youtube.com/channel/UCGVXh77FF9AWORQEefO6ZDQ'
+						'youtube'   => 'https://www.youtube.com/c/GrupoTracbel'
 					];
 				foreach ($social_icons as $platform => $link): ?>
 					<a

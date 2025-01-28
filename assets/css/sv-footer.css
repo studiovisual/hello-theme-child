@@ -1,6 +1,6 @@
 #sv-footer {
-  background-color: var(--color-2727);
-  font-family: var(--f-family-var);
+  background-color: var(--color-gray-900);
+  font-family: var(--font-family-primary);
   padding: 80px 20px;
 }
 
@@ -44,7 +44,7 @@
 
 #sv-footer .sv-footer__social_icons a {
   align-items: center;
-  background-color: var(--color-FDBA);
+  background-color: var(--color-primary);
   border-radius: 0px 0px 10px 0px;
   display: flex;
   height: 36px;
@@ -68,7 +68,7 @@
 }
 
 #sv-footer .sv-footer__menu-list .menu-item a {
-  color: var(--color-FFFF);
+  color: var(--color-white);
   display: flex;
   font-size: var(--px-16);
   font-weight: 600;
@@ -79,25 +79,25 @@
 }
 
 #sv-footer .sv-footer__menu-list .sub-menu .menu-item a {
-  color: var(--color-C5C5);
-  font-family: var(--f-family-var);
+  color: var(--color-gray-300);
+  font-family: var(--font-family-primary);
   font-size: var(--px-12);
   font-weight: 400;
   line-height: var(--px-20);
   margin-bottom: 0;
   padding: 4px 0;
   pointer-events: initial;
-  transition: var(--transition-property) var(--transition-duration) var(--transition-timing-function);
+  transition: var(--transition-default);
 }
 
 #sv-footer .sv-footer__menu-list .sub-menu .menu-item a:hover,
 #sv-footer .sv-footer__menu-list .sub-menu .menu-item.active-item a {
-  color: var(--color-FDBA);
+  color: var(--color-primary);
 }
 
 #sv-footer .sv-footer__menu-list .sub-menu .menu-item.footer-contact a {
   align-items: center;
-  color: var(--color-FFFF);
+  color: var(--color-white);
   flex-direction: column;
   line-height: var(--px-18);
   margin-bottom: 15px;
@@ -111,18 +111,18 @@
 }
 
 #sv-footer .sv-footer__menu-list .sub-menu .menu-item.footer-contact a > span {
-  color: var(--color-FDBA);
+  color: var(--color-primary);
 }
 
 #sv-footer .sv-footer__menu-list .sub-menu .menu-item.footer-operation a {
-  color: var(--color-FFFF);
+  color: var(--color-white);
   line-height: var(--px-18);
   padding: 0;
   pointer-events: none;
 }
 
 #sv-footer .sv-footer__container .sv-footer__copyright {
-  border-top: solid 2px var(--color-FDBA);
+  border-top: solid 2px var(--color-primary);
   margin-top: 40px;
   padding-top: 40px;
   text-align: center;
@@ -130,12 +130,12 @@
 
 #sv-footer .sv-footer__container .sv-footer__copyright,
 #sv-footer .sv-footer__copyright a {
-  color: var(--color-C5C5);
-  font-family: var(--f-family-var);
+  color: var(--color-gray-300);
+  font-family: var(--font-family-primary);
   font-size: var(--px-12);
   font-weight: 400;
   line-height: var(--px-20);
-  transition: var(--transition-property) var(--transition-duration) var(--transition-timing-function);
+  transition: var(--transition-default);
 }
 
 #sv-footer .sv-footer__copyright a {
@@ -143,7 +143,7 @@
 }
 
 #sv-footer .sv-footer__copyright .footer-link {
-  color: var(--color-FFFF);
+  color: var(--color-white);
   font-weight: 600;
   text-decoration: none;
 }

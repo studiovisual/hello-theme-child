@@ -1,1 +1,2 @@
-*Zone.Identifier
+# Ignorar arquivos :Zone.Identifier
+**/*.Identifier
