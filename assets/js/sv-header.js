@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		const backButton = header.querySelectorAll('#sv-header__back-menu');
 		const subMenus = header.querySelectorAll('.menu-item-has-children .sub-menu');
 		const menuItems = header.querySelectorAll('.menu-item-has-children > a');
+		const popup = document.getElementById('demo-modal');
 
 		const updateBodyClass = () => {
 			const isChecked = checkbox.checked;
@@ -45,4 +46,22 @@ document.addEventListener('DOMContentLoaded', () => {
 		checkbox.addEventListener('change', updateBodyClass);
 		navCloseButton.addEventListener('click', resetSubmenu);
 	}
+
+	// Função para adicionar a classe de nível aos submenus
+	const addMenuLevelClass = (ul, level) => {
+		ul.classList.add(`menu-level-${level}`);
+		
+		const subMenus = Array.from(ul.children);
+
+			subMenus.forEach(subMenu => {
+					const nestedUl = subMenu.querySelector('ul');
+					if (nestedUl) {
+							addMenuLevelClass(nestedUl, level + 1);
+					}
+			});
+	};
+
+	const mainMenu = document.querySelector('.sv-header__menu-list');
+
+	addMenuLevelClass(mainMenu, 1);
 });
