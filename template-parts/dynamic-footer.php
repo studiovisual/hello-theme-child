@@ -101,7 +101,7 @@ $stylesheet_dir_uri = esc_url(get_stylesheet_directory_uri());
 							'linkedin'  => 'https://br.linkedin.com/company/siteware',
 							'facebook'  => 'https://pt-br.facebook.com/Siteware/',
 							'instagram' => 'https://www.instagram.com/sitewaresolucoes/',
-							'youtube'   => 'https://www.youtube.com/channel/UCXmB3mcpQIpBp3MBU8ptuZA'
+							'youtube'   => 'https://www.youtube.com/user/SitewareLabs'
 						];
 					foreach ($social_icons as $platform => $link): ?>
 						<a
