@@ -27,13 +27,13 @@ body.logged-in.admin-bar #demo-modal.demo-modal-overlay {
 }
 
 #demo-modal .demo-modal__content {
-  background-color: var(--color-FFFF);
+  background-color: var(--color-white);
   border-radius: 4px;
   width: 100%;
 }
 
 #demo-modal .demo-modal-close-container {
-  border-bottom: 1px solid var(--color-DEE2);
+  border-bottom: 1px solid var(--color-gray-300);
   display: flex;
   height: 56px;
   justify-content: flex-end;
@@ -44,13 +44,13 @@ body.logged-in.admin-bar #demo-modal.demo-modal-overlay {
 
 #demo-modal .demo-modal-close-container:last-of-type {
   border-bottom: none;
-  border-top: 1px solid var(--color-DEE2);
+  border-top: 1px solid var(--color-gray-300);
 }
 
 #demo-modal .demo-modal__close {
   background-color: transparent;
   border: none;
-  color: var(--color-7A7A);
+  color: var(--color-gray-400);
   cursor: pointer;
   line-height: 0;
   padding: 0;
@@ -61,7 +61,7 @@ body.logged-in.admin-bar #demo-modal.demo-modal-overlay {
 }
 
 #demo-modal .demo-modal__close.demo-modal__text {
-  font-family: var(--f-family-var);
+  font-family: var(--font-family-primary);
   font-size: var(--px-14);
   font-weight: 400;
   line-height: var(--px-24);
