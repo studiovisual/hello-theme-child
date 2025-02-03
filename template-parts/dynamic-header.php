@@ -21,18 +21,20 @@ $stylesheet_dir_uri = esc_url(get_stylesheet_directory_uri());
 	<div class="sv-header__container">
 		<input type="checkbox" id="sv-header__checkbox" class="sv-header__checkbox d-none-desktop">
 		<label for="sv-header__checkbox" class="sv-header__nav-controls d-none-desktop">
-			<img src="<?php echo $stylesheet_dir_uri; ?>/assets/icons/menu-open.svg" alt="Abrir Menu" class="sv-header__navOpen" width="24" height="24">
-			<img src="<?php echo $stylesheet_dir_uri; ?>/assets/icons/menu-close.svg" alt="Fechar Menu" class="sv-header__navClose" width="24" height="24">
+			<img src="<?php echo $stylesheet_dir_uri; ?>/assets/images/menu-open.svg" alt="Abrir Menu" class="sv-header__navOpen" width="24" height="24">
+			<img src="<?php echo $stylesheet_dir_uri; ?>/assets/images/menu-close.svg" alt="Fechar Menu" class="sv-header__navClose" width="24" height="24">
 		</label>
 
 		<div class="sv-header__logo">
-			<?php
-				if (has_custom_logo()) {
-					the_custom_logo();
-				} else {
-					echo '<div class="sv-header__logo-text">' . esc_html(get_bloginfo('name')) . '</div>';
-				}
-			?>
+		<a href="<?php echo home_url(); ?>" title="<?php esc_attr_e('Ir para a página inicial', 'hello-theme-child'); ?>">
+						<img
+							src="<?php echo $stylesheet_dir_uri; ?>/assets/images/logo-siteware.svg"
+							alt="Logo Studio Visual"
+							class="sv-footer__logo"
+							width="130"
+							height="20"
+						/>
+					</a>
 		</div>
 
 		<div class="sv-header__buttons d-none-mobile">

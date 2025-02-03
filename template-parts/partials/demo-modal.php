@@ -3,7 +3,6 @@
     $stylesheet_dir_uri = esc_url(get_stylesheet_directory_uri());
 ?>
 
-
 <!-- Popup Modal -->
 <div id="demo-modal" class="demo-modal-overlay">
     <div class="demo-modal__content">

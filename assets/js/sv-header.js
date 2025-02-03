@@ -65,3 +65,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	addMenuLevelClass(mainMenu, 1);
 });
+

@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-define( 'HELLO_ELEMENTOR_CHILD_VERSION', '3.1.0' );
+define( 'HELLO_ELEMENTOR_CHILD_VERSION', '3.0.6' );
 define( 'MENU_ITEM_IMAGE_URL_META_KEY', '_menu_item_image_url' );
 
 /**
@@ -74,6 +74,14 @@ function hello_elementor_child_scripts_styles() {
 	);
 
 	wp_enqueue_script(
+		'sv-footer-script',
+		get_stylesheet_directory_uri() . '/assets/js/sv-footer.js',
+		[],
+		HELLO_ELEMENTOR_CHILD_VERSION,
+		true
+	);
+
+	wp_enqueue_script(
 			'demo-modal-script',
 			get_stylesheet_directory_uri() . '/assets/js/partials/demo-modal.js',
 			[],
@@ -84,6 +92,11 @@ function hello_elementor_child_scripts_styles() {
 
 add_action('wp_enqueue_scripts', 'hello_elementor_child_scripts_styles', 20);
 
+function child_theme_load_textdomain() {
+	load_child_theme_textdomain('hello-theme-child', get_stylesheet_directory() . '/languages');
+}
+add_action('after_setup_theme', 'child_theme_load_textdomain');
+
 /**
  * Registra os menus de navegação
  *
@@ -93,8 +106,9 @@ add_action('wp_enqueue_scripts', 'hello_elementor_child_scripts_styles', 20);
  add_filter( 'hello_elementor_register_menus', '__return_false' );
 
  register_nav_menus( [
-		 'primary-header-menu' => esc_html__( 'Header Menu', 'textdomain' ),
-		 'primary-footer-menu' => esc_html__( 'Footer Menu', 'textdomain' ),
+		 'primary-header-menu' => esc_html__( 'Header', 'hello-theme-child' ),
+		 'primary-footer-menu' => esc_html__( 'Footer', 'hello-theme-child' ),
+		 'footer-menu-info'    => esc_html__( 'Footer Menu Info', 'hello-theme-child' ),
  ] );
 
 /**
