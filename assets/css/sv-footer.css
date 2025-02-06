@@ -1,0 +1,200 @@
+#sv-footer {
+  background-color: var(--color-gray-900);
+  font-family: var(--font-family-primary);
+  padding: 80px 20px;
+}
+
+#sv-footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+#sv-footer .sv-footer__container {
+  --container: 100%;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: var(--container);
+}
+
+#sv-footer .sv-footer__content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#sv-footer .sv-footer__logo-link {
+  display: flex;
+  line-height: 0;
+}
+
+#sv-footer .sv-footer__logo {
+  margin-bottom: 50px;
+  max-width: 160px;
+}
+
+#sv-footer .sv-footer__social_icons {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+#sv-footer .sv-footer__social_icons a {
+  align-items: center;
+  background-color: var(--color-primary);
+  border-radius: 0px 0px 10px 0px;
+  display: flex;
+  height: 36px;
+  justify-content: center;
+  width: 36px;
+}
+
+#sv-footer .sv-footer__social_icons a:hover {
+  opacity: .9;
+}
+
+#sv-footer .sv-footer__social_icons img {
+  max-height: 18px;
+  max-width: 18px;
+}
+
+#sv-footer .sv-footer__menu .sv-footer__menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#sv-footer .sv-footer__menu-list .menu-item a {
+  color: var(--color-white);
+  display: flex;
+  font-size: var(--px-16);
+  font-weight: 600;
+  justify-content: center;
+  line-height: var(--px-16);
+  margin-bottom: 20px;
+  pointer-events: none;
+}
+
+#sv-footer .sv-footer__menu-list .sub-menu .menu-item a {
+  color: var(--color-gray-300);
+  font-family: var(--font-family-primary);
+  font-size: var(--px-12);
+  font-weight: 400;
+  line-height: var(--px-20);
+  margin-bottom: 0;
+  padding: 4px 0;
+  pointer-events: initial;
+  transition: var(--transition-default);
+}
+
+#sv-footer .sv-footer__menu-list .sub-menu .menu-item a:hover,
+#sv-footer .sv-footer__menu-list .sub-menu .menu-item.active-item a {
+  color: var(--color-primary);
+}
+
+#sv-footer .sv-footer__menu-list .sub-menu .menu-item.footer-contact a {
+  align-items: center;
+  color: var(--color-white);
+  flex-direction: column;
+  line-height: var(--px-18);
+  margin-bottom: 15px;
+  padding: 0;
+  pointer-events: none;
+  font-weight: 700;
+}
+
+#sv-footer .sv-footer__menu-list .sub-menu .menu-item.footer-contact a:first-child {
+  margin-top: 30px;
+}
+
+#sv-footer .sv-footer__menu-list .sub-menu .menu-item.footer-contact a > span {
+  color: var(--color-primary);
+}
+
+#sv-footer .sv-footer__menu-list .sub-menu .menu-item.footer-operation a {
+  color: var(--color-white);
+  line-height: var(--px-18);
+  padding: 0;
+  pointer-events: none;
+}
+
+#sv-footer .sv-footer__container .sv-footer__copyright {
+  border-top: solid 2px var(--color-primary);
+  margin-top: 40px;
+  padding-top: 40px;
+  text-align: center;
+}
+
+#sv-footer .sv-footer__container .sv-footer__copyright,
+#sv-footer .sv-footer__copyright a {
+  color: var(--color-gray-300);
+  font-family: var(--font-family-primary);
+  font-size: var(--px-12);
+  font-weight: 400;
+  line-height: var(--px-20);
+  transition: var(--transition-default);
+}
+
+#sv-footer .sv-footer__copyright a {
+  text-decoration: underline;
+}
+
+#sv-footer .sv-footer__copyright .footer-link {
+  color: var(--color-white);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Tablet  */
+@media (min-width: 1025px) {
+  #sv-footer .sv-footer__container {
+    --container: 1140px;
+  
+    max-width: var(--container);
+  }
+
+  #sv-footer .sv-footer__content {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    width: 100%;
+  }
+
+  #sv-footer .sv-footer__logo,
+  #sv-footer .sv-footer__social_icons {
+    margin: 0;
+  }
+
+  #sv-footer .sv-footer__menu .sv-footer__menu-list {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  #sv-footer .sv-footer__menu .sv-footer__menu-list > li {
+    flex: 1; 
+    text-align: left;
+  }
+
+  #sv-footer .sv-footer__menu .sv-footer__menu-list > li:last-child {
+    flex: 0 0 25%;
+  }
+
+  #sv-footer .sv-footer__menu .sv-footer__menu-list > li:not(:last-child) {
+    flex: 1 1 0;
+  }
+
+  #sv-footer .sv-footer__menu-list .menu-item a {
+    justify-content: start;
+  }
+
+  #sv-footer .sv-footer__menu-list .sub-menu .menu-item.footer-contact a {
+    align-items: start;
+  }
+
+  #sv-footer .sv-footer__container .sv-footer__copyright {
+    text-align: left;
+  }
+}
