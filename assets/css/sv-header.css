@@ -4,7 +4,6 @@ body.body--with-checkbox-checked {
 
 #sv-header {
   background-color: var(--color-primary-900);
-  margin: 0 -16px;
   padding: 0 16px;
 }
 
@@ -189,6 +188,24 @@ body.body--with-checkbox-checked {
   padding: 24px 16px;
 }
 
+@media(min-width: 769px) {
+  #sv-header {
+    margin: 0 -24px;
+    padding: 0 24px;
+  }
+
+  #sv-header .sv-header__navigation .menu-item a,
+  #sv-header #sv-header__back-menu,
+  #sv-header .sv-header__navigation .menu-item-title a {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  #sv-header .sv-header__navigation .menu-item-has-children::after {
+    right: 24px;
+  }
+}
+
 @media(max-width: 1024px) {
   #sv-header .sub-menu {
     background-color: var(--color-primary-900);
@@ -211,6 +228,11 @@ body.body--with-checkbox-checked {
   body.logged-in.admin-bar #sv-header .sub-menu {
     height: calc(100dvh - 122px);
     top: 122px;
+  }
+
+  #sv-header .sv-header__button {
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
   }
   
   #sv-header .sv-header__button:before {

@@ -1,7 +1,6 @@
 #sv-footer {
   background-color: var(--color-primary-900);
   font-family: var(--f-family-sweet-sans);
-  margin: 0 -16px;
   padding: 35px 16px;
 }
 
@@ -101,7 +100,7 @@
 }
 
 /* Tablet  */
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   #sv-footer {
     margin: 0 -24px;
     padding: 50px 14px;
