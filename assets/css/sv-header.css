@@ -209,12 +209,12 @@ body.body--with-checkbox-checked {
 @media(max-width: 1024px) {
   #sv-header .sub-menu {
     background-color: var(--color-primary-900);
-    height: calc(100dvh - 73px);
+    height: calc(100dvh - 76px);
     left: 100%;
     overflow: auto;
     padding: 0;
     position: fixed;
-    top: 73px;
+    top: 76px;
     transition: all 500ms;
     width: 100%;
     z-index: 200;
