@@ -150,6 +150,7 @@ body.body--with-checkbox-checked {
   user-select: none;
   width: 100%;
   -webkit-tap-highlight-color: transparent;
+  z-index: 2;
 }
 
 #sv-header .menu-item .menu-item-description {
@@ -163,6 +164,7 @@ body.body--with-checkbox-checked {
   position: absolute;
   right: 16px;
   width: 8px;
+  z-index: 1;
 }
 
 #sv-header .sv-header__back-menu-container {
