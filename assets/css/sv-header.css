@@ -19,6 +19,10 @@ body.body--with-checkbox-checked {
   max-height: 72px;
 }
 
+body.logged-in.admin-bar #sv-header {
+  top: 46px;
+}
+
 #sv-header .sv-header__container {
   align-items: center;
   display: flex;
@@ -273,8 +277,8 @@ body.body--with-checkbox-checked {
 @media(max-width: 1024px) {
   body.logged-in.admin-bar #sv-header .sv-header__navigation,
   body.logged-in.admin-bar #sv-header .sub-menu {
-    height: calc(100dvh - 119px);
-    top: 19px;
+    height: calc(100dvh - 118px);
+    top: 118px;
   }
 
   #sv-header .sub-menu {
@@ -295,6 +299,18 @@ body.body--with-checkbox-checked {
   }
 }
 
+@media(min-width: 783px) and (max-width: 1024px) {
+  body.logged-in.admin-bar #sv-header {
+    top: 32px;
+  }
+
+  body.logged-in.admin-bar #sv-header .sv-header__navigation,
+  body.logged-in.admin-bar #sv-header .sub-menu {
+    height: calc(100dvh - 104px);
+    top: 104px;
+  }
+}
+
 @media(min-width: 1025px) {
   .sv-header-wrapper {
     padding-top: 84px;
@@ -302,6 +318,10 @@ body.body--with-checkbox-checked {
 
   #sv-header {
     max-height: 84px;
+  }
+
+  body.logged-in.admin-bar #sv-header {
+    top: 32px;
   }
 
   #sv-header .d-none-desktop {
