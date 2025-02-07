@@ -3,15 +3,23 @@ body.body--with-checkbox-checked {
   overflow: hidden;
 }
 
+.sv-header-wrapper {
+  padding-top: 72px;
+}
+
 #sv-header {
   background-color: var(--color-gray-150);
   border-bottom: 1px solid var( --color-border);
   padding: 0 16px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 5000;
+  max-height: 72px;
 }
 
 #sv-header .sv-header__container {
-  --container: 100%;
-
   align-items: center;
   display: flex;
   flex-direction: row-reverse;
@@ -104,12 +112,12 @@ body.body--with-checkbox-checked {
 #sv-header .sv-header__navigation {
   background-color: var(--color-white);
   color: var(--color-white);
-  height: calc(100dvh - 71px);
+  height: calc(100dvh - 72px);
   left: 0;
   opacity: 0;
   pointer-events: none;
   position: fixed;
-  top: 71px;
+  top: 72px;
   transition: var(--transition-default);
   width: 100%;
   z-index: 100;
@@ -263,14 +271,10 @@ body.body--with-checkbox-checked {
 }
 
 @media(max-width: 1024px) {
-  #sv-header {
-    max-height: 72px;
-  }
-
   body.logged-in.admin-bar #sv-header .sv-header__navigation,
   body.logged-in.admin-bar #sv-header .sub-menu {
-    height: calc(100dvh - 118px);
-    top: 118px;
+    height: calc(100dvh - 119px);
+    top: 19px;
   }
 
   #sv-header .sub-menu {
@@ -292,6 +296,10 @@ body.body--with-checkbox-checked {
 }
 
 @media(min-width: 1025px) {
+  .sv-header-wrapper {
+    padding-top: 84px;
+  }
+
   #sv-header {
     max-height: 84px;
   }
@@ -305,8 +313,6 @@ body.body--with-checkbox-checked {
   }
 
   #sv-header .sv-header__container {
-    --container: 1200px;
-
     flex-direction: row;
     gap: 24px;
     padding: 20px 0;

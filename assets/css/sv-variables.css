@@ -66,4 +66,19 @@
   --px-52: calc(52 / var(--px-base) * var(--px-to-rem));
   --px-54: calc(54 / var(--px-base) * var(--px-to-rem));
   --px-56: calc(56 / var(--px-base) * var(--px-to-rem));
+
+  /* === CONTAINER === */
+  --container: 100%;
+}
+
+@media (min-width: 1025px) {
+  :root {
+    --container: 1120px;
+  }
+}
+
+@media (min-width: 1441px) {
+  :root {
+    --container: 1280px;
+  }
 }
