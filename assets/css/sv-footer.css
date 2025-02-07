@@ -10,8 +10,6 @@
 }
 
 #sv-footer .sv-footer__container {
-  --container: 100%;
-
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -343,12 +341,6 @@
 }
 
 @media (min-width: 1025px) {
-  #sv-footer .sv-footer__container {
-    --container: 1140px;
-  
-    max-width: var(--container);
-  }
-
   #sv-footer .sv-footer__container .sv-footer__main {
     gap: 80px;
   } 

@@ -12,11 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		const updateBodyClass = () => {
 			const isChecked = checkbox.checked;
 			body.classList.toggle('body--with-checkbox-checked', isChecked);
-			if (isChecked) {
-				setTimeout(() => {
-					window.scroll({ top: -1, left: 0, behavior: 'smooth' });
-				}, 10);
-			}
 		};
 
 		const resetSubmenu = () => {
