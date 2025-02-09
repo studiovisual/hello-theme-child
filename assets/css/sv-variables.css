@@ -9,6 +9,7 @@
   --color-gray-150: #eef3ff;
   --color-gray-200: #e4e9f5;
   --color-gray-300: #dee2e6;
+  --color-gray-350: #b0b0b0;
   --color-gray-400: #7a7a7a;
   --color-gray-500: #30373d;
   --color-gray-600: #1c2122;
@@ -17,6 +18,7 @@
 
   /* Primary Colors */
   --color-blue-200: #e4ecff;
+  --color-blue-400: #3193EC;
   --color-blue-500: #2a59dd;
   --color-red-500: #e31b23;
   --color-cyan-400: #6ec1e478;
