@@ -176,7 +176,7 @@
     .single-post-container .sidebar-right {
         display: block;
         position: sticky;
-        top: 16px;
+        top: 100px;
         height: fit-content;
         margin-top: 140px;
     }
