@@ -167,9 +167,9 @@
         display: grid;
         grid-template-columns: 22.7% 54% 20%;
         gap: 16px;
-        max-width: 1200px;
+        max-width: var(--container);
         margin: 0 auto;
-        padding: 90px 20px 40px 20px;
+        padding: 90px 0 40px 0;
     }
     
     .single-post-container .sidebar-left, 
