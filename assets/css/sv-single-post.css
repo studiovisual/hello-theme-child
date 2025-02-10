@@ -84,10 +84,20 @@
     margin-bottom: 24px;
 }
 
+.single-post-container .author__content img {
+    margin: 0 auto 4px auto;
+}
+
 .single-post-container .author__info {
     font-size: 12px;
     font-weight: 700;
     line-height: 18px;
+    text-align: center;
+}
+
+.single-post-container .author__link,
+.single-post-container .author__link:hover {
+    color: #000000;
 }
 
 .single-post-container .author__image,
@@ -197,7 +207,6 @@
 
     .single-post-container .author__content img {
         height: 96px;
-        margin: 0 auto;
         width: 96px;
     }
 
