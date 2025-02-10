@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-	if (window.matchMedia('(max-width: 1199px)').matches) {
+	if (window.matchMedia('(max-width: 1024px)').matches) {
 		const header = document.querySelector('#sv-header');
 		const body = document.body;
 		const navCloseButton = header.querySelector('.sv-header__navClose');
 		const checkbox = header.querySelector('.sv-header__checkbox');
-		const backButton = header.querySelectorAll('#sv-header__back-menu');
-		const subMenus = header.querySelectorAll('.menu-item-has-children .sub-menu');
+		const backButton = header.querySelectorAll('.sv-header__back-button');
+		const subMenus = header.querySelectorAll('.menu-item-has-children .submenu-wrapper');
 		const menuItems = header.querySelectorAll('.menu-item-has-children > a');
 		const popup = document.getElementById('demo-modal');
 
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		backButton.forEach(button => {
 			button.addEventListener('click', () => {
-				const submenuContainer = button.closest('.menu-item-has-children .sub-menu');
+				const submenuContainer = button.closest('.menu-item-has-children .submenu-wrapper');
 				if (submenuContainer) {
 					submenuContainer.classList.remove('submenu-container--show');
 				}
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			item.addEventListener('click', event => {
 				event.preventDefault();
 				const submenu = item.nextElementSibling;
-				if (submenu && submenu.classList.contains('sub-menu')) {
+				if (submenu && submenu.classList.contains('submenu-wrapper')) {
 					submenu.classList.toggle('submenu-container--show');
 				}
 			});
@@ -59,5 +59,25 @@ document.addEventListener('DOMContentLoaded', () => {
 	const mainMenu = document.querySelector('.sv-header__menu-list');
 
 	addMenuLevelClass(mainMenu, 1);
+
+	// Função para abrir a pesquisa
+	const overlay = document.getElementById('search-overlay');
+	const openButton = document.querySelector('.sv-header__icon-search');
+	const closeButton = document.getElementById('close-search-overlay');
+
+	function toggleOverlay(isVisible) {
+			overlay.classList.toggle('search-overlay--visible', isVisible);
+			overlay.classList.toggle('search-overlay--hidden', !isVisible);
+	}
+
+	openButton.addEventListener('click', () => toggleOverlay(true));
+
+	closeButton.addEventListener('click', () => toggleOverlay(false));
+
+	overlay.addEventListener('click', (e) => {
+			if (e.target === overlay) {
+					toggleOverlay(false);
+			}
+	});
 });
 

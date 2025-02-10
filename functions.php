@@ -56,14 +56,6 @@ function hello_elementor_child_scripts_styles() {
 			HELLO_ELEMENTOR_CHILD_VERSION
 	);
 
-	// Enfileira o CSS do modal
-	wp_enqueue_style(
-			'demo-modal-style',
-			get_stylesheet_directory_uri() . '/assets/css/partials/demo-modal.css',
-			[],
-			HELLO_ELEMENTOR_CHILD_VERSION
-	);
-
 	// Enfileira os scripts JavaScript
 	wp_enqueue_script(
 			'sv-header-script',
@@ -72,24 +64,7 @@ function hello_elementor_child_scripts_styles() {
 			HELLO_ELEMENTOR_CHILD_VERSION,
 			true
 	);
-
-	wp_enqueue_script(
-		'sv-footer-script',
-		get_stylesheet_directory_uri() . '/assets/js/sv-footer.js',
-		[],
-		HELLO_ELEMENTOR_CHILD_VERSION,
-		true
-	);
-
-	wp_enqueue_script(
-			'demo-modal-script',
-			get_stylesheet_directory_uri() . '/assets/js/partials/demo-modal.js',
-			[],
-			HELLO_ELEMENTOR_CHILD_VERSION,
-			true
-	);
 }
-
 add_action('wp_enqueue_scripts', 'hello_elementor_child_scripts_styles', 20);
 
 function child_theme_load_textdomain() {
@@ -137,28 +112,41 @@ class Custom_Submenu_Walker extends Walker_Nav_Menu {
 	 */
 	public function start_lvl( &$output, $depth = 0, $args = null ) {
 		if ( $depth === 0 ) {
-			$output .= '<ul class="sub-menu">';
+				// Adiciona a div que encapsula todo o conteúdo do submenu.
+				$output .= '<div class="submenu-wrapper">';
 
-			// Adiciona o botão "Voltar".
-			$output .= '<li class="menu-item menu-item-btn">';
-			$output .= '<div class="sv-header__back-menu-container">';
-			$output .= '<button id="sv-header__back-menu" class="sv-header__back-button" aria-label="Voltar ao Menu Principal">';
-			$output .= '<span>Voltar</span>';
-			$output .= '</button>';
-			$output .= '</div>';
-			$output .= '</li>';
-
-			// Adiciona o título do submenu, se estiver definido.
-			if ( ! empty( $this->current_item_title ) ) {
-				$output .= '<li class="menu-item menu-item-title">';
-				$output .= '<span>' . esc_html( $this->current_item_title ) . '</span>';
-				$output .= '</li>';
-			}
-		} else {
-				// Para outros níveis de profundidade, mantém a estrutura padrão.
-				$output .= '<ul>';
+				// Adiciona o botão "Voltar".
+				$output .= '<button class="sv-header__back-button" aria-label="Voltar ao Menu Principal"><span>Voltar</span></button>';
 		}
-	}
+
+		// Adiciona a div pai para encapsular o título e o submenu.
+		$output .= '<div class="submenu-content">';
+
+		if ( $depth === 0 ) {
+				// Adiciona o título do submenu, se estiver definido.
+				if ( ! empty( $this->current_item_title ) ) {
+						$output .= '<div class="menu-item menu-item-title">';
+						$output .= '<span>' . esc_html( $this->current_item_title ) . '</span>';
+						$output .= '</div>';
+				}
+		}
+
+		// Abre o submenu.
+		$output .= '<ul class="sub-menu">';
+}
+
+public function end_lvl( &$output, $depth = 0, $args = null ) {
+		// Fecha o submenu.
+		$output .= '</ul>';
+
+		// Fecha .submenu-content
+		$output .= '</div>'; 
+
+		if ( $depth === 0 ) {
+				// Fecha .submenu-wrapper
+				$output .= '</div>'; 
+		}
+}
 
 	/**
 	 * Renderiza cada item do menu.
@@ -279,26 +267,40 @@ function add_image_to_nav_menu($item_output, $item, $args, $depth) {
 }
 add_filter('walker_nav_menu_start_el', 'add_image_to_nav_menu', 10, 4);
 
-/**
- * Gera o botão "Agendar demonstração gratuita" com popup para exibir o formulário apropriado conforme o idioma.
- *
- * @param string $class Classes adicionais para o botão.
- * @return void
+/*
+ * Redireciona a página de autor para a página inicial
  */
-function sv_render_menu_button($class = '') {
-	$language_code = function_exists('icl_object_id') ? ICL_LANGUAGE_CODE : 'default';
-	$text = ($language_code === 'en') ? 'Request a free tryout' : 'Agendar demonstração gratuita';
-	$button_class = trim("sv-header__button sv-header__button--hire $class");
+add_action('template_redirect', function() {
+	if (is_author()) {
+			wp_redirect(home_url(), 301); // Redireciona para a página inicial
+			exit;
+	}
+});
 
-	?>
-		<a
-			href="#"
-			role="button"
-			class="<?php echo esc_attr($button_class); ?>"
-			title="<?php echo esc_attr($text); ?>"
-			aria-label="<?php echo esc_attr($text); ?>"
-			onclick="togglePopup();">
-			<?php echo esc_html($text); ?>
-		</a>
-	<?php
-}
+/*
+* Desabilita a API REST para visitantes e usuários logados
+*/
+
+add_filter('rest_authentication_errors', function($result) {
+	// Permitir acesso à API para administradores apenas
+	if (!is_user_logged_in()) {
+			return new WP_Error('rest_disabled', 'A API REST está desativada para visitantes.', array('status' => 403));
+	}
+
+	// Bloquear até mesmo para usuários logados, exceto administradores
+	if (!current_user_can('manage_options')) {
+			return new WP_Error('rest_disabled', 'A API REST está desativada para este usuário.', array('status' => 403));
+	}
+
+	return $result;
+});
+
+/*
+ * Remove "Pages" da busca.
+ */
+add_filter( 'register_post_type_args', function( $args, $name ) {
+	if( 'page' === $name )
+			$args['exclude_from_search'] = true;
+
+	return $args;
+}, 10, 2 );
