@@ -64,6 +64,16 @@ function hello_elementor_child_scripts_styles() {
 			HELLO_ELEMENTOR_CHILD_VERSION
 	);
 
+	// adicionar css sv-single-post apenas se for a pagina single de post
+	if ( is_single() ) {
+		wp_enqueue_style(
+			'sv-single-post-style',
+			get_stylesheet_directory_uri() . '/assets/css/sv-single-post.css',
+			[],
+			HELLO_ELEMENTOR_CHILD_VERSION
+		);
+	}
+
 	// Enfileira os scripts JavaScript
 	wp_enqueue_script(
 			'sv-header-script',
