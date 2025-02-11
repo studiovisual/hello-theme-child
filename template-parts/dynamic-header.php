@@ -84,7 +84,7 @@ $stylesheet_dir_uri = esc_url(get_stylesheet_directory_uri());
 				</nav>
 
 				<div class="sv-header__buttons d-none-mobile">
-					<a href="#popup-ecommerce" class="sv-header__button sv-header__button--hire" title="Agendar demonstração gratuita">
+					<a href="#popup-ecommerce" class="sv-header__button sv-header__button--hire" title="Acessar e-commerce">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 576 512"
