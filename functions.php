@@ -243,7 +243,7 @@ function add_image_to_nav_menu($item_output, $item, $args, $depth) {
     $post_title = get_the_title($item->object_id);
 
     $item_output = '<a href="' . esc_url($item->url) . '" title="' . esc_attr($post_title) . '">';
-		$item_output .= '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($post_title) . '" class="menu-item-image" width="150" height="70" loading="lazy" decoding="async" />';
+    $item_output .= '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($post_title) . ' logo" class="menu-item-image" width="150" height="70" loading="lazy" decoding="async" />';
     $item_output .= $item->title . '</a>';
 	}
 
