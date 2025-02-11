@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-define( 'HELLO_ELEMENTOR_CHILD_VERSION', '2.0.3' );
+define( 'HELLO_ELEMENTOR_CHILD_VERSION', '2.0.4' );
 define( 'MENU_ITEM_IMAGE_URL_META_KEY', '_menu_item_image_url' );
 
 /**
@@ -118,7 +118,7 @@ class Custom_Submenu_Walker extends Walker_Nav_Menu {
 		}
 
 		// Abre o submenu.
-		$output .= '<ul class="sub-menu">';
+		$output .= '<ul class="sub-menu menu-level-' . ($depth + 1) . '">';
 }
 
 public function end_lvl( &$output, $depth = 0, $args = null ) {
