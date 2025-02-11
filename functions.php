@@ -118,7 +118,7 @@ class Custom_Submenu_Walker extends Walker_Nav_Menu {
 		}
 
 		// Abre o submenu.
-		$output .= '<ul class="sub-menu">';
+		$output .= '<ul class="sub-menu menu-level-' . ($depth + 1) . '">';
 }
 
 public function end_lvl( &$output, $depth = 0, $args = null ) {
