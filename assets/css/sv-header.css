@@ -323,11 +323,11 @@ body.body--with-checkbox-checked {
   z-index: 1;
 }
 
-#sv-header .sv-header__back-menu-container {
+#sv-header .sv-header__back-button-container {
   width: 100%;
 }
 
-#sv-header #sv-header__back-menu {
+#sv-header .sv-header__back-button {
   padding: 0;
   background-color: transparent;
   margin-bottom: 0;
@@ -340,7 +340,7 @@ body.body--with-checkbox-checked {
   user-select: none;
 }
 
-#sv-header #sv-header__back-menu img {
+#sv-header .sv-header__back-button img {
   transform: rotate(-180deg);
   width: 20px;
 }
@@ -591,7 +591,7 @@ body.body--with-checkbox-checked {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  #sv-header #sv-header__back-menu,
+  #sv-header .sv-header__back-button,
   #sv-header .sv-header__navigation .submenu-wrapper .menu-item-btn {
     display: none;
   }
