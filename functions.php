@@ -67,11 +67,6 @@ function hello_elementor_child_scripts_styles() {
 }
 add_action('wp_enqueue_scripts', 'hello_elementor_child_scripts_styles', 20);
 
-function child_theme_load_textdomain() {
-	load_child_theme_textdomain('hello-theme-child', get_stylesheet_directory() . '/languages');
-}
-add_action('after_setup_theme', 'child_theme_load_textdomain');
-
 /**
  * Registra os menus de navegação
  *
@@ -85,14 +80,6 @@ add_action('after_setup_theme', 'child_theme_load_textdomain');
 		 'primary-footer-menu' => esc_html__( 'Footer', 'hello-theme-child' ),
 		 'footer-menu-info'    => esc_html__( 'Footer Menu Info', 'hello-theme-child' ),
  ] );
-
-/**
- * Adiciona o script de integração do formulário HubSpot ao cabeçalho do site.
- */
-function add_script_head () {
-	echo '<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>';
-}
-add_action('wp_head', 'add_script_head', 5);
 
 /**
  * Classe personalizada para gerenciar submenus com título e botão "Voltar".
@@ -140,11 +127,11 @@ public function end_lvl( &$output, $depth = 0, $args = null ) {
 		$output .= '</ul>';
 
 		// Fecha .submenu-content
-		$output .= '</div>'; 
+		$output .= '</div>';
 
 		if ( $depth === 0 ) {
 				// Fecha .submenu-wrapper
-				$output .= '</div>'; 
+				$output .= '</div>';
 		}
 }
 
@@ -218,14 +205,13 @@ function add_custom_menu_image_field( $item_id, $item, $depth, $args ) {
 					<br />
 					<small><?php echo esc_html( __( 'Insira o URL da imagem que deseja usar para este item de menu.' ) ); ?></small>
 					<br />
-					<small><?php echo esc_html( __( 'Obs: Campo ativo apenas para o subitem STRATWS One e subitens de Módulos.' ) ); ?></small>
+					<small><?php echo esc_html( __( 'Obs: Campo ativo apenas para o menu de Marcas.' ) ); ?></small>
 			</label>
 	</p>
 
 	<?php
 }
 add_filter( 'wp_nav_menu_item_custom_fields', 'add_custom_menu_image_field', 10, 4 );
-
 
 /**
  * Salva o URL da imagem inserido nos itens de menu.
@@ -241,7 +227,6 @@ function save_custom_menu_image_field( $menu_id, $menu_item_db_id, $args ) {
 	}
 }
 add_action( 'wp_update_nav_menu_item', 'save_custom_menu_image_field', 10, 3 );
-
 
 /**
 * Adiciona uma imagem ao item de menu, se houver um URL de imagem.
@@ -267,6 +252,7 @@ function add_image_to_nav_menu($item_output, $item, $args, $depth) {
 }
 add_filter('walker_nav_menu_start_el', 'add_image_to_nav_menu', 10, 4);
 
+
 /*
  * Redireciona a página de autor para a página inicial
  */
@@ -280,7 +266,6 @@ add_action('template_redirect', function() {
 /*
 * Desabilita a API REST para visitantes e usuários logados
 */
-
 add_filter('rest_authentication_errors', function($result) {
 	// Permitir acesso à API para administradores apenas
 	if (!is_user_logged_in()) {
