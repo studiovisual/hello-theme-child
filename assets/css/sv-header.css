@@ -481,6 +481,7 @@ body.logged-in.admin-bar #sv-header {
 
   #sv-header .sv-header__navigation .menu-item-has-children a {
     padding-right: 10px;
+    pointer-events: none;
   }
 
   #sv-header .sv-header__navigation .submenu-wrapper {
@@ -606,6 +607,7 @@ body.logged-in.admin-bar #sv-header {
     line-height: normal;
     font-weight: 600;
     white-space: normal;
+    pointer-events: all;
   }
 
   #sv-header .sv-header__navigation .menu-item .submenu-wrapper .menu-item::before {

@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-define( 'HELLO_ELEMENTOR_CHILD_VERSION', '3.0.8' );
+define( 'HELLO_ELEMENTOR_CHILD_VERSION', '2.0.2' );
 define( 'MENU_ITEM_IMAGE_URL_META_KEY', '_menu_item_image_url' );
 
 /**
@@ -78,7 +78,6 @@ add_action('wp_enqueue_scripts', 'hello_elementor_child_scripts_styles', 20);
  register_nav_menus( [
 		 'primary-header-menu' => esc_html__( 'Header', 'hello-theme-child' ),
 		 'primary-footer-menu' => esc_html__( 'Footer', 'hello-theme-child' ),
-		 'footer-menu-info'    => esc_html__( 'Footer Menu Info', 'hello-theme-child' ),
  ] );
 
 /**
@@ -244,7 +243,7 @@ function add_image_to_nav_menu($item_output, $item, $args, $depth) {
     $post_title = get_the_title($item->object_id);
 
     $item_output = '<a href="' . esc_url($item->url) . '" title="' . esc_attr($post_title) . '">';
-    $item_output .= '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($post_title) . '" class="menu-item-image" aria-hidden="true" width="315" height="200" /> ';
+		$item_output .= '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($post_title) . '" class="menu-item-image" width="150" height="70" loading="lazy" decoding="async" />';
     $item_output .= $item->title . '</a>';
 	}
 
