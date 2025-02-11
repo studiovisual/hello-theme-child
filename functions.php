@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-define( 'HELLO_ELEMENTOR_CHILD_VERSION', '2.0.3' );
+define( 'HELLO_ELEMENTOR_CHILD_VERSION', '2.0.4' );
 define( 'MENU_ITEM_IMAGE_URL_META_KEY', '_menu_item_image_url' );
 
 /**
