@@ -17,7 +17,7 @@ $categories = get_the_category();
     <aside class="sidebar-left">
         <div class="table__content">
             <p class="toc__title"><?php echo __('Conteúdo', 'hello-theme-child'); ?></p>
-            <?php echo do_shortcode('[ez-toc]'); ?>
+            <?php echo do_shortcode('[ez-toc device_target="desktop"]'); ?>
         </div>
         
         <div class="author__content">
@@ -79,7 +79,6 @@ $categories = get_the_category();
         <div class="content">
             <div class="table__content show__mobile">
                 <p class="toc__title"><?php echo __('Conteúdo', 'hello-theme-child'); ?></p>
-                <?php echo do_shortcode('[ez-toc]'); ?>
             </div>
             <div class="content">
                 <?php the_content(); ?>
@@ -98,7 +97,6 @@ $categories = get_the_category();
                 $categories = get_the_category();
                 $banner = get_field('banner', 'category_' . $category_id);
                 
-                // Exibe o banner apenas se houver uma imagem
                 if (!empty($banner)) {
                     echo '<a href="' . esc_url($banner['url']['url']) . '" target="_blank" title="Confira">
                             <img src="' . esc_url($banner['imagem']['url']) . '" alt="' . esc_attr($banner['imagem']['alt']) . '">
@@ -108,9 +106,6 @@ $categories = get_the_category();
             ?>
         </div>
     </aside>
-
-
-    
 </main>
 
 <?php get_footer(); ?>

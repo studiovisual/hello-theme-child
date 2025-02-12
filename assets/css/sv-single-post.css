@@ -181,6 +181,10 @@
         margin: 0 auto;
         padding: 90px 0 40px 0;
     }
+
+    .single-post-container .content #ez-toc-container {
+        display: none;
+    }
     
     .single-post-container .sidebar-left, 
     .single-post-container .sidebar-right {
