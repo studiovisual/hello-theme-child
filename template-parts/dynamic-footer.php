@@ -12,6 +12,11 @@ if (!defined('ABSPATH')) {
 
 $stylesheet_dir_uri = esc_url(get_stylesheet_directory_uri());
 
+// Renderiza o shortcode do template Elementor acima do footer
+if (get_post_status(21501) === 'publish') {
+	echo do_shortcode('[elementor-template id="21501"]');
+}
+
 ?>
 
 <footer id="sv-footer" class="sv-footer">
