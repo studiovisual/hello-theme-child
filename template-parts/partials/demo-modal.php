@@ -9,7 +9,7 @@
         <div class="demo-modal-close-container">
             <button class="demo-modal__close" onclick="togglePopup()" aria-label="Fechar popup">
                 <img
-                    src="<?php echo $stylesheet_dir_uri; ?>/assets/icons/menu-close.svg"
+                    src="<?php echo $stylesheet_dir_uri; ?>/assets/images/menu-close.svg"
                     alt="Fechar Menu"
                     class="demo-modal__close-icon"
                     width="24"
