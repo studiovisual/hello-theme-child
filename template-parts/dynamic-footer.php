@@ -19,7 +19,7 @@ $stylesheet_dir_uri = esc_url(get_stylesheet_directory_uri());
 		<div class="sv-footer__content">
 			<a class="sv-footer__logo-link" href="<?php echo home_url(); ?>" title="Ir para a página inicial">
 				<img
-					src="<?php echo $stylesheet_dir_uri; ?>/assets/icons/logo-studio-footer.svg"
+					src="<?php echo $stylesheet_dir_uri; ?>/assets/icons/logo-studiovisual-footer.svg"
 					alt="Logo Studio Visual"
 					class="sv-footer__logo"
 				/>
